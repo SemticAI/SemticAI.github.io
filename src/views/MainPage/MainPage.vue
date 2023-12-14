@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted } from "vue";
 
 //example components
-import DefaultNavbar from "../../examples/navbars/NavbarDefault.vue";
+import DefaultNavbar from "../../examples/navbars/NavbarMain.vue";
 import DefaultFooter from "../../examples/footers/FooterDefault.vue";
 
 //image
@@ -95,10 +95,21 @@ onUnmounted(() => {
     </div>
   </header>
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <Information />
-    <AboutTeam />
-    <Featuring />
-    <Newsletter />
+    
+    <section id="section1">
+      <Information />
+    </section>
+    <section id="section2">
+      <AboutTeam />
+    </section>
+    <section id="section3">
+      <Featuring />
+    </section>   
+     <section id="section4">
+      <Newsletter />
+    </section>
+
+
   </div>
   <DefaultFooter />
 </template>
