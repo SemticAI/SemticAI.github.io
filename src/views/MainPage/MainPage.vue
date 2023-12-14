@@ -27,8 +27,8 @@ onMounted(() => {
     // eslint-disable-next-line no-unused-vars
     var typed = new Typed("#typed", {
       stringsElement: "#typed-strings",
-      typeSpeed: 90,
-      backSpeed: 90,
+      typeSpeed: 80,
+      backSpeed: 70,
       backDelay: 200,
       startDelay: 500,
       loop: true,
@@ -60,12 +60,12 @@ onUnmounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">
-              Work with an amazing <span class="text-white" id="typed"></span>
+              Integrate AI into your <span class="text-white" id="typed"></span>
             </h1>
             <div id="typed-strings">
-              <h1>team</h1>
-              <h1>design</h1>
-              <h1>tool</h1>
+              <h1>company</h1>
+              <h1>processes</h1>
+              <h1>life</h1>
             </div>
             <p class="lead mb-4 text-white opacity-8">
               We’re constantly trying to express ourselves and actualize our
