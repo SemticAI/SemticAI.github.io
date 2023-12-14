@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import MainView from "../views/MainPage/MainPage.vue";
 import PresentationView from "../views/Presentation/PresentationView.vue";
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
@@ -28,13 +29,18 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "presentation",
-      component: PresentationView,
+      name: "main",
+      component: MainView,
     },
     {
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/pages/landing-pages/presentation",
+      name: "presentation",
+      component: PresentationView,
     },
     {
       path: "/pages/landing-pages/contact-us",
