@@ -65,14 +65,15 @@ onUnmounted(() => {
             <div id="typed-strings">
               <h1>company</h1>
               <h1>processes</h1>
+              <h1>product</h1>
               <h1>life</h1>
             </div>
             <p class="lead mb-4 text-white opacity-8">
               Bring the power of AI to your company and unlock its full potential
             </p>
-            <button type="submit" class="btn bg-white text-dark">
-              Create Account
-            </button>
+            <a href="mailto:contact@semtic.ai" class="btn bg-white text-dark">
+              Contact Us
+            </a>
             <!-- <h6 class="text-white mb-2 mt-5">Find us on</h6>
             <div class="d-flex justify-content-center">
               <a href="javascript:;"
