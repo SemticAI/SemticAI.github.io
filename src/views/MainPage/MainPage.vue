@@ -68,8 +68,7 @@ onUnmounted(() => {
               <h1>life</h1>
             </div>
             <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+              Bring the power of AI to your company and unlock its full potential
             </p>
             <button type="submit" class="btn bg-white text-dark">
               Create Account
