@@ -65,8 +65,8 @@ onUnmounted(() => {
             <div id="typed-strings">
               <h1>company</h1>
               <h1>processes</h1>
-              <h1>product</h1>
               <h1>life</h1>
+              <h1>product</h1>
             </div>
             <p class="lead mb-4 text-white opacity-8">
               Bring the power of AI to your company and unlock its full potential
