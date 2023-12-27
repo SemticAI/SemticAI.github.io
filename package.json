@@ -1,7 +1,6 @@
 {
-  "name": "reign",
-  "version": "5.0.0",
-  "description": "Fat Free Responsive Agency Template",
+  "name": "Semtic AI",
+  "description": "Bring the power of AI to your business and unlock its full potential",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
