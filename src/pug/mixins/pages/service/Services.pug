@@ -27,13 +27,6 @@ append variables
       },
 
     ];
-mixin Gallery(config)
-  .col-12.col-sm-6.col-lg-4.thumbnail-grid-item
-    img(src=`${CWD}assets/img/gallery/${config.image}` alt="" data-bs-toggle='collapse'  data-bs-target=`#${config.id}` aria-expanded='false' aria-controls=`${config.id}`).thumbnail-gridder
-    .position-absolute.start-0
-      .collapse.thumbnail-grid-content( data-bs-parent="#selector" id=`${config.id}`)
-        .card.card-body.border-0.bg-100.m-1.px-4
-          +GalleryContent(config)
 
 mixin GalleryContent(config)
   .row.align-items-center
@@ -51,14 +44,14 @@ mixin GalleryContent(config)
       h5.ls-1=config.title
       p=config.text
       a(href="#!").btn.btn-outline-dark.btn-sm.hvr-sweep-top.hover-color-white.mt-2 Visit Website
-
+//- TODO: Make the whole thing clickable not just the icon
 mixin ServiceItem(config, galleryConfig)
-  .col-sm-6.col-lg-4.mb-3(data-zanim-timeline!={} data-zanim-trigger="scroll").thumbnail-grid-item
+  .col-sm-6.col-lg-4(data-zanim-timeline!={} data-zanim-trigger="scroll").thumbnail-grid-item
     .overflow-hidden
-      .service-item.p-3.p-md-4.h-100
+      .service-item.p-3.p-md-4.h-100(data-bs-toggle='collapse' data-bs-target=`#${config.id}` aria-expanded='false' aria-controls=`${config.id}`)
         .overflow-hidden
           .px-4(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay}`})
-            img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='' data-bs-toggle='collapse'  data-bs-target=`#${config.id}` aria-expanded='false' aria-controls=`${config.id}`).service-icon.thumbnail-gridder
+            img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='').service-icon
         .overflow-hidden
           h5.fw-normal.ls-3.mb-2(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay + 0.1}`})=config.title
         .overflow-hidden
@@ -104,8 +97,3 @@ mixin Services(title)
         delay: 0.3,
         link: "ai-assistant"
       }, galleries[2])
-  //- +Section
-  //-   .row.g-2.position-relative.thumbnail-grid-container#selector
-  //-     +Gallery(galleries[0])
-  //-     +Gallery(galleries[1])
-  //-     +Gallery(galleries[2])
