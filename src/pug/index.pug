@@ -12,7 +12,7 @@ include mixins/pages/work/Mixin
 include mixins/pages/CtaWorks
 include mixins/pages/blog/BlogGrid
 include mixins/pages/blog/Mixin
-include mixins/pages/Contact
+include mixins/pages/ContactShort
 
 append variables
   - var Navbar = false;
@@ -46,7 +46,7 @@ append mainContent
   //- +CtaWorks
   //- TODO: add back when example projects are ready
   //- +BlogGrid(true)#blog TODO: add back when there are posts to show
-  +Contact('Drop Us A Line')#contact
+  +ContactShort('Connect With Us')#contact
 
 
 
