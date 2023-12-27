@@ -51,10 +51,10 @@ mixin Contact(title)
 
 			.col-lg-6
 				h5.mb-3 Feel free to drop us a line!
-				form.zform.text-left(method="post")
-					input(type="hidden" name="to" value="username@domain.extension")
+				form.zform.text-left#contactForm(data-sb-form-api-token="39e231a6-36c3-467a-853d-033255ee3e21" method="post")
+					input(type="hidden" name="to" value="contact@semtic.ai")
 					.form-group.mb-3
-						input.fs-0.form-control(type="text" placeholder="Your Name" required)
+						input.fs-0.form-control(type="name" placeholder="Your Name" required id="name" data-sb-validations="required")
 					.form-group.mb-3
 						input.fs-0.form-control(type="email" placeholder="Email Address" required)
 					.form-group.mb-3
