@@ -1,4 +1,4 @@
-mixin SinglePost
+mixin PostAIAssistant
 	+Section
 		.row
 			.col-lg-7.mb-4.mb-lg-0
@@ -46,44 +46,6 @@ mixin SinglePost
 								a(href="#!").text-900.px-2
 									span.fab.fa-linkedin-in(data-fa-transform="grow-5")
 
-				.row
-					.col-12
-						h4.font-base.border-bottom.pb-2.my-4.fw-normal 5 Comments
-						.d-flex.mb-4
-							img(src=`${CWD}assets/img/team/1.jpg`, width="60" height="60" alt="").rounded-circle.me-3
-							.flex-1
-								p.mb-1.text-700 
-									a(href="#!").fw-bold.text-900 Kin Herritage
-									|  Wow! Excellent. This post is very useful for me. I'm searching about this last four months but I couldn't manage.
-								a(href="#!").text-700.me-1.fs--1 Like
-								| &bull;
-								a(href="#!").text-700.ms-1.fs--1 Reply
-								span.fs--1.ps-1.text-600 Just Now
-						.d-flex
-							img(src=`${CWD}assets/img/team/2.jpg`, width="60" height="60" alt="").rounded-circle.me-3
-							.flex-1
-								p.mb-1.text-700
-									a(href="#!").fw-bold.text-900 Kin Herritage
-									|  Wow! Excellent. This post is very useful for me. I'm searching about this last four months but I couldn't manage.
-								a(href="#!").text-700.me-1.fs--1 Like
-								| &bull;
-								a(href="#!").text-700.ms-1.fs--1 Reply
-								span.fs--1.ps-1.text-600 1hr
-					.col-12
-						form.mt-5
-							h4.fw-normal.mb-3.font-base Leave a comment
-							.row.g-0
-								.col-md-6.pe-2.mb-3
-									.form-group
-										input(type="text" placeholder="Name").form-control
-								.col-md-6.ps-2.mb-3
-									.form-group
-										input(type="email" placeholder="Email").form-control
-								.col-12.mb-3
-									.form-group
-										textarea.form-control(rows="10" placeholder="Your Comment")
-								.d-grid
-									button.btn.btn-dark.hvr-sweep-top(type="submit") Post
 			.col-lg-5.ps-lg-7
 				+BlogSidebar
 		.row
