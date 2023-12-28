@@ -4,8 +4,8 @@ append variables
       {
         id:'collapse-1',
         image:'g1.jpg',
-        title:'GILLIAN WEARING',
-        text:'Since the beginning of her career, Gillian Wearing has drawn from techniques of theatre, reality television, and fly-on-the-wall documentary-making to construct narratives that explore personal fantasies and confessions, individual traumas, cultural histories.',
+        title:'Custom AI Assistants: Revolutionizing Business Operations',
+        text:"In today's rapidly advancing technological landscape, Custom AI Assistants are emerging as game changers for businesses across various sectors. But what exactly are these assistants, and how can they transform your company? A Custom AI Assistant is a sophisticated AI system designed to perform a wide range of tasks tailored to the specific needs of a business. Unlike generic AI tools, these assistants are customized to understand the unique aspects of your business, from industry-specific terminology to company-specific processes. They are capable of learning and adapting to your company's environment, making them incredibly efficient at handling tasks that would typically require human intelligence.",
         next:'collapse-2',
         prev:'!',
       },
@@ -22,7 +22,7 @@ append variables
         image:'g3.jpg',
         title:'CHRISTOPHER WOOL',
         text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
-        next:'collapse-4',
+        next:'!',
         prev:'collapse-2',
       },
 
@@ -37,14 +37,13 @@ mixin GalleryContent(config)
         i.fas.fa-angle-left
       a(href='#!' data-grid-target=`#${config.next}` data-thumbnail-grid-nav).thumbnail-grid-nav.next
         i.fas.fa-angle-right
-    .col-7
+    .col-4
       .d-none.d-lg-block.p-0
         img(src=`${CWD}assets/img/gallery/${config.image}` alt="").w-100.img-fluid.rounded
-    .col-lg-5
+    .col-lg-8
       h5.ls-1=config.title
       p=config.text
-      a(href="#!").btn.btn-outline-dark.btn-sm.hvr-sweep-top.hover-color-white.mt-2 Visit Website
-//- TODO: Make the whole thing clickable not just the icon
+
 mixin ServiceItem(config, galleryConfig)
   .col-sm-6.col-lg-4(data-zanim-timeline!={} data-zanim-trigger="scroll").thumbnail-grid-item
     .overflow-hidden
