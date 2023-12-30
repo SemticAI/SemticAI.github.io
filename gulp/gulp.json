@@ -2,7 +2,7 @@
   "rtl": true,
   "dir": {
     "dev": "public",
-    "prod": "build"
+    "prod": "docs"
   },
   "style": {
     "src": "src/scss/**/*.scss",
@@ -25,10 +25,7 @@
       "all": "src/pug/**/*.pug",
       "pages": [
         "*.pug",
-        "components/**/*.pug",
-        "homes/**/*.pug",
-        "pages/**/*.pug",
-        "docs/**/*.pug"
+        "pages/**/*.pug"
       ]
     },
     "dest": ""

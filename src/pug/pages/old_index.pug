@@ -1,7 +1,7 @@
-extends layouts/LayoutTheme
-include mixins/headers/Mixin
-include mixins/pages/homes/HeaderShowcase
-include mixins/pages/ShowcaseTestimonial
+extends ../layouts/LayoutTheme
+include ../mixins/headers/Mixin
+include ../mixins/pages/homes/HeaderShowcase
+include ../mixins/pages/ShowcaseTestimonial
 
 prepend scripts
   script(src!=`https://maps.googleapis.com/maps/api/js?key=${API_GMAP}&callback=initMap` async)
