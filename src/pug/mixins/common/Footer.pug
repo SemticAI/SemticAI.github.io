@@ -1,0 +1,8 @@
+mixin Footer
+  - var copyrightYear = new Date().getFullYear()
+  footer.footer.text-center.bg-black.py-3.position-absolute.w-100.bottom-0&attributes(attributes)
+    .container
+      .row.justify-content-between
+        .col-12.col-md-auto.mb-1.mb-md-0
+          p.mb-0
+            | #{name} &copy; #{copyrightYear}

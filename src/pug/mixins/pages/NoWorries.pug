@@ -1,0 +1,37 @@
+mixin Countup(config)
+  .overflow-hidden
+    img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='').fun-fact-icon.mb-2
+  .overflow-hidden
+    p.text-uppercase.text-white.fw-semi-bold.ls-2.mb-0=config.title
+        
+mixin NoWorries
+  +Section({
+    image: `${CWD}assets/img/backgrounds/our-video-bg.jpg`,
+    className: "overlay"
+  }).py-7.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.mb-4
+      .col
+        .overflow-hidden
+          h2.fs-sm-5.text-white.mb-1.mb-lg-2(data-zanim-xs!={'duration': 1.5, 'delay': 0}) No worries
+        .overflow-hidden
+          p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) We specialise in pain-free deployments
+        .overflow-hidden
+          hr.hr-short.bg-white(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+    .row.justify-content-center
+      .col-lg-8
+        .row
+          .col-md-4.mb-4.mb-lg-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.0}) 
+            +Countup({
+              img: "man-1-white",
+              title: "UX Focused"
+            })
+          .col-md-4.mb-4.mb-lg-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) 
+            +Countup({
+              img: "monitor-2-white",
+              title: "Frictionless integration"
+            })
+          .col-md-4(data-zanim-xs!={'duration': 1.5, 'delay': 0.2}) 
+            +Countup({
+              img: "padlock-1-white",
+              title: "Data security"
+            })

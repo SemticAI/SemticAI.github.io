@@ -1,0 +1,47 @@
+mixin Process
+	+Section&attributes(attributes)
+		.row
+			.col.mb-4.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+				.overflow-hidden
+					h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) how we do it
+				.overflow-hidden
+					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) working together to achieve great results
+				.overflow-hidden
+					hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+		.row.justify-content-center
+			.col-lg-9.px-5
+				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/light-bulb.svg`, alt="").process-icon
+					.flex-1.ms-4.ms-sm-5
+						h5.ls-2
+							span.bg-white.pe-3 Initial Discovery (Free)
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) Your Journey Begins Here. At Semtic.AI, we kick off with a complimentary Initial Discovery session. We're confident in our ability to meet or exceed your expectations, and we start by understanding your unique needs and vision. This free initial step reflects our commitment to aligning with your goals right from the outset.
+
+				.d-flex.process-item.border-dashed-start.border-600.border-md-start-0.border-md-dashed-end.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
+						h5.text-md-end
+							span.bg-white.ps-md-3 Design &amp; Requirements
+							span.process-devider.border-end-0.start-0
+						p.mb-0.text-md-end.ps-lg-6(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  We believe that getting the requirements right is half the job. That's why, at this stage, we're 100% fixated on crafting a customer experience that resonates with your specific needs. Our meticulous approach to design and requirements ensures that the final product isn't just functional, but also a perfect fit for your business.
+
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/medical-result.svg`, alt="").process-icon
+
+				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/web-programming.svg`, alt="").process-icon
+					.flex-1.position-relative.ms-4.ms-sm-5
+						span.process-devider.border-start-0.end-0
+						h5.ls-2
+							span.bg-white.pe-3 Development &amp; Testing
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) The development and testing phase is where our expertize truly shines. Our team diligently builds and refines your custom AI solution, integrating advanced AI technologies with your specific requirements. Rigorous testing is conducted to ensure reliability, efficiency, and seamless integration into your operations.
+
+				.d-flex.process-item(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
+						h5.text-md-end
+							span.bg-white.ps-md-3 Support &amp; Maintenance
+							span.process-devider.border-end-0.start-0
+						p.mb-0.text-md-end.ps-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  Our support and maintenance packages, while optional, are highly recommended to keep your AI solutions in top form. We offer a spectrum of options, from basic support to ongoing development, allowing for monthly enhancements and functionality extensions. This approach ensures that your AI solutions not only remain reliable but also evolve with your business needs.
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/technical-support.svg`, alt="").process-icon

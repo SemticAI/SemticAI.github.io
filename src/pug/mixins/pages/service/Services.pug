@@ -1,0 +1,98 @@
+append variables 
+  -
+    var galleries= [
+      {
+        id:'collapse-1',
+        image:'ai_assistant.jpg',
+        title:'Revolutionizing Business Operations',
+        text:"In today's rapidly advancing technological landscape, Custom AI Assistants are emerging as game changers for businesses across various sectors. But what exactly are these assistants, and how can they transform your company? A Custom AI Assistant is a sophisticated AI system designed to perform a wide range of tasks tailored to the specific needs of a business. Unlike generic AI tools, these assistants are customized to understand the unique aspects of your business, from industry-specific terminology to company-specific processes. They are capable of learning and adapting to your company's environment, making them incredibly efficient at handling tasks that would typically require human intelligence.",
+        next:'collapse-2',
+        prev:'!',
+      },
+      {
+        id:'collapse-2',
+        image:'knowledge_db.jpg',
+        title:'Empowering Your AI with Your knowledge',
+        text:"A Semantic Knowledge Database represents a significant leap in how companies manage and utilize their information. It's about creating a central hub that holds all your company's knowledge – everything from documents and emails to meeting notes and reports. Unlike traditional databases, it's designed to be easily understood and used by AI systems, like AI assistants, making your business more efficient and forward-thinking.",
+        next:'collapse-3',
+        prev:'collapse-1',
+      },
+      {
+        id:'collapse-3',
+        image:'ai_agent.jpg',
+        title:'Pioneering the New Frontier in Business Automation',
+        text:'AI Agents are advanced AI systems capable of making autonomous decisions based on data analysis. Unlike traditional automation tools that follow predefined rules, AI Agents can adapt, learn, and evolve as they process new information. This ability makes them incredibly powerful tools for businesses looking to stay ahead in the digital age.',
+        next:'!',
+        prev:'collapse-2',
+      },
+
+    ];
+
+mixin GalleryContent(config)
+  .row.align-items-center
+    .thumbnail-grid-navigation
+      a(href="#!").thumbnail-close
+        i.fas.fa-times
+      a(href='#!' data-grid-target=`#${config.prev}` data-thumbnail-grid-nav).thumbnail-grid-nav.prev
+        i.fas.fa-angle-left
+      a(href='#!' data-grid-target=`#${config.next}` data-thumbnail-grid-nav).thumbnail-grid-nav.next
+        i.fas.fa-angle-right
+    .col-4
+      .d-none.d-lg-block.p-0
+        img(src=`${CWD}assets/img/gallery/${config.image}` alt="").w-100.img-fluid.rounded
+    .col-lg-8
+      h5.ls-1=config.title
+      p=config.text
+
+mixin ServiceItem(config, galleryConfig)
+  .col-sm-6.col-lg-4(data-zanim-timeline!={} data-zanim-trigger="scroll").thumbnail-grid-item
+    #service-card.overflow-hidden
+      .service-item.p-3.p-md-4.h-100(data-bs-toggle='collapse' data-bs-target=`#${config.id}` aria-expanded='false' aria-controls=`${config.id}`).thumbnail-gridder
+        .overflow-hidden
+          .px-4(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay}`})
+            img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='').service-icon
+        .overflow-hidden
+          h5.fw-normal.ls-3.mb-2(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay + 0.1}`})=config.title
+        .overflow-hidden
+          p.fw-normal(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay + 0.2}`})!=config.description
+    .position-absolute.start-0
+      .collapse.thumbnail-grid-content(data-bs-parent="#selector" id=`${config.id}`)
+        .card.card-body.border-0.bg-100.m-1.px-4
+          +GalleryContent(galleryConfig)
+              
+mixin Services(title)
+  +Section.text-center&attributes(attributes)
+    if title
+      .row.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        .col
+          .overflow-hidden
+            h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) Our Services
+          .overflow-hidden
+            p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) The AI revolution is upon us - let us take your company into the new era
+          .overflow-hidden
+            hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+    .row.g-2.position-relative.thumbnail-grid-container#selector
+      +ServiceItem({
+        id:'collapse-1',
+        img: "black-bubble-speech", 
+        title: "AI assistants", 
+        description: 'Harness the latest LLM-powered AI assistants, custom-tailored for your company. With access to internal data and systems, our assistants provide personalized support for clients and employees 24/7.', 
+        delay: 0,
+        link: "ai-assistant" ,
+      }, galleries[0])
+      +ServiceItem({
+        id:'collapse-2',
+        img: "object", 
+        title: "Knowledge Bases", 
+        description: "Empower your data with meaning and structure. Our AI-driven semantic knowledge base consolidates your company's data, granting instant access to any information you might require, right at your fingertips.", 
+        delay: 0.2,
+        link: "ai-assistant" 
+      }, galleries[1])
+      +ServiceItem({
+        id:'collapse-3',
+        img: "network", 
+        title: "AI Agents", 
+        description: "Experience cutting-edge autonomous automation with AI Agents. They intelligently analyze data, make decisions, and seamlessly interact with systems. Witness the ease and power of automation like never before.",
+        delay: 0.3,
+        link: "ai-assistant"
+      }, galleries[2])
