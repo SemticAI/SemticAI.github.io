@@ -1,5 +1,6 @@
 {
   "name": "Semtic AI",
+  "version": "1.0.0",
   "description": "Bring the power of AI to your business and unlock its full potential",
   "main": "gulpfile.js",
   "scripts": {
