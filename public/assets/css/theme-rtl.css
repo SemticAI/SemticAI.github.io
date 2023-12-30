@@ -2800,12 +2800,14 @@ progress {
   box-shadow: 0 0 0 transparent;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -2865,12 +2867,14 @@ progress {
   border-radius: 0;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control::file-selector-button {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -3006,6 +3010,7 @@ textarea.form-control-lg {
   box-shadow: var(--reign-box-shadow-inset);
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
@@ -3015,6 +3020,7 @@ textarea.form-control-lg {
 @media (prefers-reduced-motion: reduce) {
   .form-select {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -3130,11 +3136,13 @@ textarea.form-control-lg {
   background-position: right center;
   border-radius: 2em;
   -webkit-transition: background-position 0.15s ease-in-out;
+  -o-transition: background-position 0.15s ease-in-out;
   transition: background-position 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-switch .form-check-input {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -3283,12 +3291,14 @@ textarea.form-control-lg {
   transform-origin: 100% 0;
   -webkit-transition: opacity 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-floating > label {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -3647,12 +3657,14 @@ textarea.form-control-lg {
   border-radius: 0.188rem;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .btn {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4198,11 +4210,13 @@ textarea.form-control-lg {
 
 .fade {
   -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
 @media (prefers-reduced-motion: reduce) {
   .fade {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4218,11 +4232,13 @@ textarea.form-control-lg {
   height: 0;
   overflow: hidden;
   -webkit-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .collapsing {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4230,11 +4246,13 @@ textarea.form-control-lg {
   width: 0;
   height: auto;
   -webkit-transition: width 0.35s ease;
+  -o-transition: width 0.35s ease;
   transition: width 0.35s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .collapsing.collapse-horizontal {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4675,11 +4693,13 @@ textarea.form-control-lg {
   padding: 0.4rem 1rem;
   color: #007bff;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4860,12 +4880,14 @@ textarea.form-control-lg {
   border-radius: 0.188rem;
   -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
   transition: -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: box-shadow 0.15s ease-in-out;
   transition: box-shadow 0.15s ease-in-out;
   transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -4943,6 +4965,7 @@ textarea.form-control-lg {
     border-left: 0;
     border-right: 0;
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
     -webkit-transform: none;
     -ms-transform: none;
@@ -5014,6 +5037,7 @@ textarea.form-control-lg {
     border-left: 0;
     border-right: 0;
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
     -webkit-transform: none;
     -ms-transform: none;
@@ -5085,6 +5109,7 @@ textarea.form-control-lg {
     border-left: 0;
     border-right: 0;
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
     -webkit-transform: none;
     -ms-transform: none;
@@ -5156,6 +5181,7 @@ textarea.form-control-lg {
     border-left: 0;
     border-right: 0;
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
     -webkit-transform: none;
     -ms-transform: none;
@@ -5226,6 +5252,7 @@ textarea.form-control-lg {
   border-left: 0;
   border-right: 0;
   -webkit-transition: none;
+  -o-transition: none;
   transition: none;
   -webkit-transform: none;
   -ms-transform: none;
@@ -5511,12 +5538,14 @@ textarea.form-control-lg {
   overflow-anchor: none;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .accordion-button {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -5544,12 +5573,14 @@ textarea.form-control-lg {
   background-size: 0.6rem;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .accordion-button::after {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -5659,12 +5690,14 @@ textarea.form-control-lg {
   border: 1px solid var(--reign-pagination-border-color);
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .page-link {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -5900,16 +5933,19 @@ textarea.form-control-lg {
   white-space: nowrap;
   background-color: #007bff;
   -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
 
 .progress-bar-striped {
+  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 1rem 1rem;
 }
@@ -6368,6 +6404,7 @@ textarea.form-control-lg {
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   -webkit-transform: translate(0, -50px);
@@ -6377,6 +6414,7 @@ textarea.form-control-lg {
 @media (prefers-reduced-motion: reduce) {
   .modal.fade .modal-dialog {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -6779,12 +6817,14 @@ textarea.form-control-lg {
   backface-visibility: hidden;
   -webkit-transition: -webkit-transform 0.6s ease-in-out;
   transition: -webkit-transform 0.6s ease-in-out;
+  -o-transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -6810,6 +6850,7 @@ textarea.form-control-lg {
 .carousel-fade .carousel-item {
   opacity: 0;
   -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
   transition-property: opacity;
   -webkit-transform: none;
   -ms-transform: none;
@@ -6826,12 +6867,14 @@ textarea.form-control-lg {
   z-index: 0;
   opacity: 0;
   -webkit-transition: opacity 0s 0.6s;
+  -o-transition: opacity 0s 0.6s;
   transition: opacity 0s 0.6s;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-fade .active.carousel-item-start,
 .carousel-fade .active.carousel-item-end {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -6859,12 +6902,14 @@ textarea.form-control-lg {
   border: 0;
   opacity: 0.5;
   -webkit-transition: opacity 0.15s ease;
+  -o-transition: opacity 0.15s ease;
   transition: opacity 0.15s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-control-prev,
 .carousel-control-next {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -6940,11 +6985,13 @@ textarea.form-control-lg {
   border-bottom: 10px solid transparent;
   opacity: 0.5;
   -webkit-transition: opacity 0.6s ease;
+  -o-transition: opacity 0.6s ease;
   transition: opacity 0.6s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-indicators [data-bs-target] {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -7073,12 +7120,14 @@ textarea.form-control-lg {
   box-shadow: var(--reign-box-shadow-sm);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .offcanvas {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -7299,6 +7348,7 @@ textarea.form-control-lg {
 }
 
 .sticky-top {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1015;
@@ -7306,6 +7356,7 @@ textarea.form-control-lg {
 
 @media (min-width: 576px) {
   .sticky-sm-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1015;
@@ -7313,6 +7364,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 768px) {
   .sticky-md-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1015;
@@ -7320,6 +7372,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .sticky-lg-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1015;
@@ -7327,6 +7380,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 1200px) {
   .sticky-xl-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1015;
@@ -7357,6 +7411,7 @@ textarea.form-control-lg {
 
 .text-truncate {
   overflow: hidden;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -7518,6 +7573,7 @@ textarea.form-control-lg {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -10046,6 +10102,7 @@ textarea.form-control-lg {
   }
 
   .position-sm-sticky {
+    position: -webkit-sticky !important;
     position: sticky !important;
   }
 
@@ -12007,6 +12064,7 @@ textarea.form-control-lg {
   }
 
   .position-md-sticky {
+    position: -webkit-sticky !important;
     position: sticky !important;
   }
 
@@ -13968,6 +14026,7 @@ textarea.form-control-lg {
   }
 
   .position-lg-sticky {
+    position: -webkit-sticky !important;
     position: sticky !important;
   }
 
@@ -15929,6 +15988,7 @@ textarea.form-control-lg {
   }
 
   .position-xl-sticky {
+    position: -webkit-sticky !important;
     position: sticky !important;
   }
 
@@ -17992,11 +18052,13 @@ small, .small {
 .navbar-theme .navbar-nav > .nav-item > .nav-link {
   position: relative;
   -webkit-transition: padding 0.4s ease;
+  -o-transition: padding 0.4s ease;
   transition: padding 0.4s ease;
 }
 .navbar-theme .navbar-nav > .nav-item .nav-link-text {
   padding: 0.0625rem 0.25rem;
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 .navbar-theme .navbar-nav > .nav-item > .nav-link:active > .nav-link-text,
@@ -18230,6 +18292,7 @@ small, .small {
 .btn {
   text-transform: uppercase;
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
@@ -18315,6 +18378,7 @@ code[class*=language-], pre[class*=language-] {
 .contains-anchor a {
   opacity: 0;
   -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
   transition-property: opacity;
 }
 .contains-anchor:hover a, .contains-anchor:focus a {
@@ -18420,6 +18484,7 @@ code[class*=language-], pre[class*=language-] {
 |   Sidebar
 -----------------------------------------------*/
 .sticky-sidebar {
+  position: -webkit-sticky;
   position: sticky;
   z-index: 1015;
   top: 6.625rem;
@@ -18457,6 +18522,7 @@ code[class*=language-], pre[class*=language-] {
 
 .collapsed .collapse-icon {
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -18465,6 +18531,7 @@ code[class*=language-], pre[class*=language-] {
 
 .collapse-icon {
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
@@ -18514,11 +18581,13 @@ code[class*=language-], pre[class*=language-] {
 /* -------------------------------------------------------------------------- */
 .transition-base {
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
 .transition-none {
   -webkit-transition: none;
+  -o-transition: none;
   transition: none;
 }
 
@@ -18611,6 +18680,7 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
   transform: translateY(-50%);
   top: 50%;
   -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   color: var(--reign-100);
   z-index: 1;
@@ -18696,6 +18766,7 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
     transform: translateY(-50%);
     top: 50%;
     -webkit-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
     transition: opacity 0.4s ease-in-out;
     width: 3rem;
     height: 3rem;
@@ -18774,6 +18845,7 @@ code[class*=language-], pre[class*=language-] {
 .contains-anchor a {
   opacity: 0;
   -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
   transition-property: opacity;
 }
 .contains-anchor:hover a, .contains-anchor:focus a {
@@ -18840,6 +18912,7 @@ code[class*=language-], pre[class*=language-] {
   margin-bottom: 0.625rem;
   border: 1px solid transparent;
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   margin-left: 0.3125rem;
 }
@@ -19168,6 +19241,7 @@ h6, .h6 {
   background: rgba(0, 0, 0, 0.4);
 }
 .bg-holder.overlay-gradient:before {
+  background: -o-linear-gradient(-135deg, rgba(0, 25, 66, 0.702) 0, rgba(244, 244, 234, 0.5) 100%);
   background: linear-gradient(45deg, rgba(0, 25, 66, 0.702) 0, rgba(244, 244, 234, 0.5) 100%);
 }
 .bg-holder .bg-video {
@@ -19477,6 +19551,7 @@ h6, .h6 {
 
 .dropdown-item {
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   font-weight: 400;
   border-bottom: 1px solid rgba(73, 71, 71, 0.15);
@@ -19604,6 +19679,7 @@ h6, .h6 {
   bottom: 0;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 .showcase-item-content:hover, .showcase-item-content:focus {
@@ -19622,6 +19698,7 @@ h6, .h6 {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
   background-repeat: no-repeat;
   text-align: center;
@@ -19645,6 +19722,7 @@ h6, .h6 {
 .hover-shadow-soft {
   -webkit-transition: -webkit-transform 0.6s ease;
   transition: -webkit-transform 0.6s ease;
+  -o-transition: transform 0.6s ease;
   transition: transform 0.6s ease;
   transition: transform 0.6s ease, -webkit-transform 0.6s ease;
   -webkit-backface-visibility: hidden;
@@ -19689,6 +19767,7 @@ h6, .h6 {
   background-size: 0.6rem;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   margin-left: 1rem;
@@ -19696,6 +19775,7 @@ h6, .h6 {
 @media (prefers-reduced-motion: reduce) {
   .accordion-button::before {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
 }
@@ -19722,6 +19802,7 @@ h6, .h6 {
   z-index: -1;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   left: 0;
@@ -20131,6 +20212,7 @@ h6, .h6 {
 .btn-outline-white:hover .play-icon, .btn-outline-white:focus .play-icon {
   stroke: #000;
   -webkit-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
@@ -20149,6 +20231,7 @@ h6, .h6 {
   background-color: #fff;
   z-index: -1;
   -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .hover-sweep-top:hover, .hover-sweep-top:focus {
@@ -20167,6 +20250,7 @@ h6, .h6 {
 
 a.hover-color-white {
   -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 a.hover-color-white:hover {
@@ -20188,6 +20272,7 @@ a.hover-color-white:hover {
   height: 100%;
   opacity: 0;
   -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   margin: 0 !important;
 }
@@ -20210,6 +20295,7 @@ a.hover-color-white:hover {
 
 .hoverbox-content-gradient {
   background: -webkit-gradient(linear, right top, right bottom, from(transparent), to(#000));
+  background: -o-linear-gradient(transparent, #000);
   background: linear-gradient(transparent, #000);
 }
 
@@ -20242,6 +20328,7 @@ a.hover-color-white:hover {
   align-items: center;
   color: var(--reign-700);
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   height: 2.5rem;
   width: 2.5rem;
@@ -20327,6 +20414,7 @@ a.hover-color-white:hover {
   -webkit-box-shadow: -0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   box-shadow: -0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   color: #777e87;
   opacity: 0;
@@ -20422,6 +20510,7 @@ iframe.yt-video.loaded {
 
 a.footer-link {
   -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   color: #5f656c;
 }
@@ -20442,6 +20531,7 @@ a.footer-link:hover {
   background-color: black;
   opacity: 1;
   -webkit-transition: opacity 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+  -o-transition: opacity 0.8s cubic-bezier(0.77, 0, 0.18, 1);
   transition: opacity 0.8s cubic-bezier(0.77, 0, 0.18, 1);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21033,6 +21123,7 @@ a.footer-link:hover {
   border-radius: 0.188rem;
   overflow: hidden;
   -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
@@ -21145,6 +21236,7 @@ a.footer-link:hover {
 }
 .thumbnail-grid-container .thumbnail-grid-item {
   -webkit-transition: all 0.35s ease;
+  -o-transition: all 0.35s ease;
   transition: all 0.35s ease;
   z-index: 10;
 }
@@ -21347,6 +21439,7 @@ a.footer-link:hover {
     text-align: center;
     color: #9ba0a7;
     -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
 
@@ -21385,6 +21478,7 @@ a.footer-link:hover {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   color: var(--reign-700);
   z-index: 1;
@@ -21455,6 +21549,7 @@ a.footer-link:hover {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
   background-repeat: no-repeat;
 }
