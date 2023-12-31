@@ -24,3 +24,9 @@ gulp.task('build:push', () =>
 		})
 		.pipe(gulp.dest(`live/${version}`))
 );
+
+gulp.task('copyCNAME', function() {
+	return gulp.src('./public/CNAME')
+		.pipe(gulp.dest('./docs'));
+});
+

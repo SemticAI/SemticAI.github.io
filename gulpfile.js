@@ -12,7 +12,7 @@ gulp.task('compile:all', gulp.parallel('compile', 'pug'));
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 |  Deploy
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-gulp.task('build', gulp.series('clean:build', 'build:static', 'compile:all'));
+gulp.task('build', gulp.series('clean:build', 'build:static', 'compile:all', "copyCNAME"));
 gulp.task('build:test', gulp.series('build', 'watch'));
 gulp.task('live', gulp.series('clean:live', 'build', 'build:push'));
 
