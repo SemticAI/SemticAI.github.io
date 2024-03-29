@@ -2,6 +2,25 @@
 /* -------------------------------------------------------------------------- */
 /*                                 Theme                                      */
 /* -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "ManropeBold";
+  src: url("../fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-Medium.ttf") format("truetype");
+  font-weight: medium;
+  font-style: normal;
+}
+::-moz-selection {
+  background: #acb9f1;
+}
+::selection {
+  background: #acb9f1;
+}
+
 /* prettier-ignore */
 /* -------------------------------------------------------------------------- */
 /*                                  Utilities                                 */
@@ -53,10 +72,10 @@
   --reign-black-rgb: 0, 0, 0;
   --reign-body-color-rgb: 95, 101, 108;
   --reign-body-bg-rgb: 255, 255, 255;
-  --reign-font-sans-serif: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --reign-font-sans-serif: ManropeBold, Arial, serif;
   --reign-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --reign-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --reign-body-font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --reign-body-font-family: Manrope, Arial, serif;
   --reign-body-font-size: 0.875rem;
   --reign-body-font-weight: 400;
   --reign-body-line-height: 1.5;
@@ -361,7 +380,7 @@ hr:not([size]) {
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.625rem;
-  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: ManropeBold, Arial, serif;
   font-weight: 200;
   line-height: 3.125rem;
   color: #000;
@@ -6414,7 +6433,7 @@ textarea.form-control-lg {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -15885,7 +15904,7 @@ label,
 .pagination,
 .valid-feedback,
 .invalid-feedback {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
 }
 
 pre {
@@ -16290,7 +16309,7 @@ code[class*=language-], pre[class*=language-] {
 }
 
 .components-nav {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
   font-size: 0.707rem;
   font-weight: 500;
   letter-spacing: 0.01rem;
@@ -16314,7 +16333,7 @@ code[class*=language-], pre[class*=language-] {
 |   Borders
 -----------------------------------------------*/
 .component-example {
-  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: ManropeBold, Arial, serif;
 }
 .component-example [class^=border] {
   display: -webkit-inline-box;
@@ -16793,7 +16812,7 @@ code[class*=language-], pre[class*=language-] {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
   text-transform: uppercase;
   color: #000;
   text-decoration: none;
@@ -16835,7 +16854,7 @@ code[class*=language-], pre[class*=language-] {
 .progress-circle {
   height: 15.625rem;
   position: relative;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
 }
 .progress-circle .progressbar-text {
   text-align: center;
@@ -16861,7 +16880,7 @@ code[class*=language-], pre[class*=language-] {
 
 .progress-line {
   position: relative;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
   font-weight: 400;
 }
 .progress-line .progressbar-text {
@@ -17053,11 +17072,11 @@ h6, .h6 {
 |   Font family
 -----------------------------------------------*/
 .font-sans-serif {
-  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: ManropeBold, Arial, serif;
 }
 
 .font-base {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Manrope, Arial, serif;
 }
 
 /*-----------------------------------------------
@@ -17634,7 +17653,7 @@ h6, .h6 {
 /* -------------------------------------------------------------------------- */
 .accordion-button {
   text-transform: uppercase;
-  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: ManropeBold, Arial, serif;
 }
 .accordion-button:not(.collapsed)::before {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath fill-rule='evenodd' d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/%3e%3c/svg%3e");
@@ -19424,7 +19443,7 @@ a.footer-link:hover {
   top: 2.3rem;
   color: #fff;
   font-size: 8rem;
-  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: ManropeBold, Arial, serif;
   font-weight: 300;
   opacity: 0.5;
   right: 50%;
