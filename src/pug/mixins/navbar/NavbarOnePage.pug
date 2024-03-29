@@ -1,6 +1,8 @@
 mixin NavbarOnePage
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-theme.fixed-top.py-0(data-navbar-on-scroll)
     .container
+      a.navbar-brand.fw-normal.ls-2(href=`${CWD}index.html`)
+        img(src=`${CWD}assets/img/logo/SEMTIC-logo-negative-white.svg`, alt="Semtic AI", width="100px")
       //- a.navbar-brand.fw-normal.ls-2(href=`${CWD}index.html`)
       //-   | Semtic AI
       button.navbar-toggler.collapsed(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')

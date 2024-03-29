@@ -1,7 +1,5 @@
 /* -------------------------------------------------------------------------- */
-
 /*                                    Utils                                   */
-
 /* -------------------------------------------------------------------------- */
 const docReady = fn => {
   // see if DOM is already available
@@ -11,20 +9,15 @@ const docReady = fn => {
     setTimeout(fn, 1);
   }
 };
-
 const isRTL = () => {
   return document.querySelector('html').getAttribute('dir') === 'rtl';
 };
-
 const resize = fn => window.addEventListener('resize', fn);
-
 const isIterableArray = array => Array.isArray(array) && !!array.length;
-
 const camelize = str => {
   const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
   return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
 };
-
 const getData = (el, data) => {
   try {
     return JSON.parse(el.dataset[camelize(data)]);
@@ -32,24 +25,22 @@ const getData = (el, data) => {
     return el.dataset[camelize(data)];
   }
 };
-/* ----------------------------- Colors function ---------------------------- */
 
+/* ----------------------------- Colors function ---------------------------- */
 
 const hexToRgb = hexValue => {
   let hex;
-  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue; // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-
+  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue;
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b));
   return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
 };
-
 const rgbaColor = (color = '#fff', alpha = 0.5) => `rgba(${hexToRgb(color)}, ${alpha})`;
+
 /* --------------------------------- Colors --------------------------------- */
 
-
 const getColor = (name, dom = document.documentElement) => getComputedStyle(dom).getPropertyValue(`--reign-${name}`).trim();
-
 const getColors = dom => ({
   primary: getColor('primary', dom),
   secondary: getColor('secondary', dom),
@@ -60,7 +51,6 @@ const getColors = dom => ({
   light: getColor('light', dom),
   dark: getColor('dark', dom)
 });
-
 const getSoftColors = dom => ({
   primary: getColor('soft-primary', dom),
   secondary: getColor('soft-secondary', dom),
@@ -71,7 +61,6 @@ const getSoftColors = dom => ({
   light: getColor('soft-light', dom),
   dark: getColor('soft-dark', dom)
 });
-
 const getGrays = dom => ({
   white: getColor('white', dom),
   100: getColor('100', dom),
@@ -87,16 +76,13 @@ const getGrays = dom => ({
   1100: getColor('1100', dom),
   black: getColor('black', dom)
 });
-
 const hasClass = (el, className) => {
   !el && false;
   return el.classList.value.includes(className);
 };
-
 const addClass = (el, className) => {
   el.classList.add(className);
 };
-
 const getOffset = el => {
   const rect = el.getBoundingClientRect();
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -105,49 +91,48 @@ const getOffset = el => {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft
   };
-}; // function isScrolledIntoView(el) {
+};
+
+// function isScrolledIntoView(el) {
 //   const rect = el.getBoundingClientRect();
 //   const windowHeight =
 //     window.innerHeight || document.documentElement.clientHeight;
 //   const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+
 //   const vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
 //   const horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
+
 //   return vertInView && horInView;
 // }
-
 
 const isScrolledIntoView = el => {
   let top = el.offsetTop;
   let left = el.offsetLeft;
   const width = el.offsetWidth;
   const height = el.offsetHeight;
-
   while (el.offsetParent) {
     // eslint-disable-next-line no-param-reassign
     el = el.offsetParent;
     top += el.offsetTop;
     left += el.offsetLeft;
   }
-
   return {
     all: top >= window.pageYOffset && left >= window.pageXOffset && top + height <= window.pageYOffset + window.innerHeight && left + width <= window.pageXOffset + window.innerWidth,
     partial: top < window.pageYOffset + window.innerHeight && left < window.pageXOffset + window.innerWidth && top + height > window.pageYOffset && left + width > window.pageXOffset
   };
 };
-
 const isElementIntoView = el => {
-  const position = el.getBoundingClientRect(); // checking whether fully visible
-
+  const position = el.getBoundingClientRect();
+  // checking whether fully visible
   if (position.top >= 0 && position.bottom <= window.innerHeight) {
     return true;
-  } // checking for partial visibility
+  }
 
-
+  // checking for partial visibility
   if (position.top < window.innerHeight && position.bottom >= 0) {
     return true;
   }
 };
-
 const breakpoints = {
   xs: 0,
   sm: 576,
@@ -156,21 +141,16 @@ const breakpoints = {
   xl: 1200,
   xxl: 1540
 };
-
 const getBreakpoint = el => {
   const classes = el && el.classList.value;
   let breakpoint;
-
   if (classes) {
     breakpoint = breakpoints[classes.split(' ').filter(cls => cls.includes('navbar-expand-')).pop().split('-').pop()];
   }
-
   return breakpoint;
 };
-
 const getCurrentScreenBreakpoint = () => {
   let currentBreakpoint = '';
-
   if (window.innerWidth >= breakpoints.xl) {
     currentBreakpoint = 'xl';
   } else if (window.innerWidth >= breakpoints.lg) {
@@ -180,27 +160,24 @@ const getCurrentScreenBreakpoint = () => {
   } else {
     currentBreakpoint = 'sm';
   }
-
   const breakpointStartVal = breakpoints[currentBreakpoint];
   return {
     currentBreakpoint,
     breakpointStartVal
   };
 };
-/* --------------------------------- Cookie --------------------------------- */
 
+/* --------------------------------- Cookie --------------------------------- */
 
 const setCookie = (name, value, expire) => {
   const expires = new Date();
   expires.setTime(expires.getTime() + expire);
   document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
 };
-
 const getCookie = name => {
   var keyValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
   return keyValue ? keyValue[2] : keyValue;
 };
-
 const settings = {
   tinymce: {
     theme: 'oxide'
@@ -209,14 +186,15 @@ const settings = {
     borderColor: 'rgba(255, 255, 255, 0.8)'
   }
 };
+
 /* -------------------------- Chart Initialization -------------------------- */
 
 const newChart = (chart, config) => {
   const ctx = chart.getContext('2d');
   return new window.Chart(ctx, config);
 };
-/* ---------------------------------- Store --------------------------------- */
 
+/* ---------------------------------- Store --------------------------------- */
 
 const getItemFromStore = (key, defaultValue, store = localStorage) => {
   try {
@@ -225,12 +203,10 @@ const getItemFromStore = (key, defaultValue, store = localStorage) => {
     return store.getItem(key) || defaultValue;
   }
 };
-
 const setItemToStore = (key, payload, store = localStorage) => store.setItem(key, payload);
-
 const getStoreSpace = (store = localStorage) => parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
-/* get Dates between */
 
+/* get Dates between */
 
 const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
   const duration = endDate - startDate;
@@ -239,39 +215,31 @@ const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
     length: steps + 1
   }, (v, i) => new Date(startDate.valueOf() + interval * i));
 };
-
 const getPastDates = duration => {
   let days;
-
   switch (duration) {
     case 'week':
       days = 7;
       break;
-
     case 'month':
       days = 30;
       break;
-
     case 'year':
       days = 365;
       break;
-
     default:
       days = duration;
   }
-
   const date = new Date();
   const endDate = date;
   const startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
   return getDates(startDate, endDate);
 };
+
 /* Get Random Number */
-
-
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
-
 const utils = {
   docReady,
   breakpoints,
@@ -304,10 +272,9 @@ const utils = {
   getPastDates,
   getRandomNumber
 };
+
 /* -------------------------------------------------------------------------- */
-
 /*                                  Detector                                  */
-
 /* -------------------------------------------------------------------------- */
 
 const detectorInit = () => {
@@ -329,32 +296,26 @@ const detectorInit = () => {
   is.windows() && addClass(html, 'windows');
   navigator.userAgent.match('CriOS') && addClass(html, 'chrome');
 };
+
 /*-----------------------------------------------
 |   DomNode
 -----------------------------------------------*/
-
-
 class DomNode {
   constructor(node) {
     this.node = node;
   }
-
   addClass(className) {
     this.isValidNode() && this.node.classList.add(className);
   }
-
   removeClass(className) {
     this.isValidNode() && this.node.classList.remove(className);
   }
-
   toggleClass(className) {
     this.isValidNode() && this.node.classList.toggle(className);
   }
-
   hasClass(className) {
     this.isValidNode() && this.node.classList.contains(className);
   }
-
   data(key) {
     if (this.isValidNode()) {
       try {
@@ -363,60 +324,49 @@ class DomNode {
         return this.node.dataset[this.camelize(key)];
       }
     }
-
     return null;
   }
-
   attr(name) {
     return this.isValidNode() && this.node[name];
   }
-
   setAttribute(name, value) {
     this.isValidNode() && this.node.setAttribute(name, value);
   }
-
   removeAttribute(name) {
     this.isValidNode() && this.node.removeAttribute(name);
   }
-
   setProp(name, value) {
     this.isValidNode() && (this.node[name] = value);
   }
-
   on(event, cb) {
     this.isValidNode() && this.node.addEventListener(event, cb);
   }
-
   isValidNode() {
     return !!this.node;
-  } // eslint-disable-next-line class-methods-use-this
+  }
 
-
+  // eslint-disable-next-line class-methods-use-this
   camelize(str) {
     const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
     return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
   }
-
 }
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                  Anchor JS                                 */
-
 /* -------------------------------------------------------------------------- */
-
 
 const anchors = new window.AnchorJS();
 anchors.options = {
   icon: "#"
 };
 anchors.add("[data-anchor]");
+
 /*-----------------------------------------------
 |   ScrollTotop
 -----------------------------------------------*/
-
 const BackToTopInit = () => {
   const backToTopEl = document.querySelector(".btn-back-to-top");
-
   if (backToTopEl) {
     backToTopEl.style.opacity = 0;
     window.addEventListener("scroll", () => {
@@ -428,10 +378,10 @@ const BackToTopInit = () => {
     });
   }
 };
+
 /* -------------------------------------------------------------------------- 
 |                                 bg player                                  
 --------------------------------------------------------------------------- */
-
 
 const bgPlayerInit = () => {
   const Selector = {
@@ -450,7 +400,6 @@ const bgPlayerInit = () => {
     DOM_CONTENT_LOADED: "DOMContentLoaded"
   };
   const youtubeEmbedElements = document.querySelectorAll(Selector.DATA_YOUTUBE_EMBED);
-
   const loadVideo = () => {
     function setupPlayer() {
       window.YT.ready(function () {
@@ -461,9 +410,7 @@ const bgPlayerInit = () => {
             startSeconds: 1,
             endSeconds: 50
           };
-
           const options = window._.merge(defaultOptions, userOptions);
-
           const youTubePlayer = () => {
             // eslint-disable-next-line
             new YT.Player(youtubeEmbedElement, {
@@ -491,11 +438,9 @@ const bgPlayerInit = () => {
                       embedElement.classList.add(ClassName.LOADED);
                     });
                   }
-
                   if (e.data === window.YT.PlayerState.PAUSED) {
                     e.target.playVideo();
                   }
-
                   if (e.data === window.YT.PlayerState.ENDED) {
                     // Loop from starting point
                     e.target.seekTo(options.startSeconds);
@@ -504,28 +449,25 @@ const bgPlayerInit = () => {
               }
             });
           };
-
           youTubePlayer();
         });
       });
     }
-
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     tag.onload = setupPlayer;
   };
-
   if (document.readyState !== Events.LOADING) {
     loadVideo();
   } else {
     document.addEventListener(Events.DOM_CONTENT_LOADED, () => loadVideo());
   }
+
   /* -------------------------------------------------------------------------- 
   |                                 Adjust BG Ratio                                
   --------------------------------------------------------------------------- */
-
 
   const adjustBackgroundRatio = () => {
     const ytElements = document.querySelectorAll(Selector.YT_VIDEO);
@@ -541,16 +483,13 @@ const bgPlayerInit = () => {
       ytElement.style.minWidth = minWidth + "px";
     });
   };
-
   adjustBackgroundRatio();
   document.addEventListener(Events.SCROLL, () => adjustBackgroundRatio());
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                 bigPicture                                 */
-
 /* -------------------------------------------------------------------------- */
-
 
 const bigPictureInit = () => {
   if (window.BigPicture) {
@@ -562,13 +501,12 @@ const bigPictureInit = () => {
         noLoader: true,
         allowfullscreen: true
       };
-
       const options = window._.merge(defaultOptions, userOptions);
-
       bpItem.addEventListener("click", () => {
         window.BigPicture(options);
-      }); //  style
+      });
 
+      //  style
       if (userOptions.imgSrc && !bpItem.classList.value.split(" ").filter(className => className.indexOf("btn") === 0)[0]) {
         const styleCursorElement = bpItem;
         styleCursorElement.style.cursor = "zoom-in";
@@ -576,17 +514,13 @@ const bigPictureInit = () => {
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                  Count Up                                  */
-
 /* -------------------------------------------------------------------------- */
-
-
 const countupInit = () => {
   if (window.countUp) {
     const countups = document.querySelectorAll("[data-countup]");
-
     if (countups.length) {
       countups.forEach(node => {
         const {
@@ -610,11 +544,10 @@ const countupInit = () => {
     }
   }
 };
+
 /*-----------------------------------------------
 |   Dashboard Table dropdown
 -----------------------------------------------*/
-
-
 const dropdownMenuInit = () => {
   // Only for ios
   if (window.is.ios()) {
@@ -629,7 +562,6 @@ const dropdownMenuInit = () => {
     document.querySelectorAll(Selector.TABLE_RESPONSIVE).forEach(table => {
       table.addEventListener(Event.SHOWN_BS_DROPDOWN, e => {
         const t = e.currentTarget;
-
         if (t.scrollWidth > t.clientWidth) {
           t.style.paddingBottom = `${e.target.nextElementSibling.clientHeight}px`;
         }
@@ -639,32 +571,27 @@ const dropdownMenuInit = () => {
       });
     });
   }
-}; // Reference
+};
+
+// Reference
 // https://github.com/twbs/bootstrap/issues/11037#issuecomment-274870381
 
 /* -------------------------------------------------------------------------- */
-
 /*                           Open dropdown on hover                           */
-
 /* -------------------------------------------------------------------------- */
-
 
 const dropdownOnHover = () => {
   const navbarArea = document.querySelectorAll('[data-bs-toggle="dropdown-on-hover"]');
-
   if (navbarArea) {
     navbarArea.forEach(navbarItem => {
       navbarItem.addEventListener('mouseover', e => {
         if (e.target.className.includes('dropdown-toggle')) {
           const dropdownInstance = new window.bootstrap.Dropdown(e.target);
+
           /* eslint-disable no-underscore-dangle */
-
           dropdownInstance._element.classList.add('show');
-
           dropdownInstance._menu.classList.add('show');
-
           dropdownInstance._menu.setAttribute('data-bs-popper', 'none');
-
           e.target.parentNode.addEventListener('mouseleave', () => {
             dropdownInstance.hide();
           });
@@ -673,18 +600,13 @@ const dropdownOnHover = () => {
     });
   }
 };
+
 /* eslint-disable*/
-
 /* -------------------------------------------------------------------------- */
-
 /*                                Universal contact form ajax submission                                  */
-
 /* -------------------------------------------------------------------------- */
-
-
 const formInit = () => {
   const zforms = document.querySelectorAll("[data-form]");
-
   if (zforms.length) {
     zforms.forEach(form => {
       form.addEventListener("submit", e => {
@@ -722,15 +644,14 @@ const formInit = () => {
     });
   }
 };
+
 /*-----------------------------------------------
 |   Gooogle Map
 -----------------------------------------------*/
 
-
 function initMap() {
   const themeController = document.body;
   const $googlemaps = document.querySelectorAll(".googlemap");
-
   if ($googlemaps.length && window.google) {
     // Visit https://snazzymaps.com/ for more themes
     const mapStyles = {
@@ -1648,7 +1569,6 @@ function initMap() {
       const zoom = utils.getData(itm, "zoom");
       const mapElement = itm;
       const mapStyle = utils.getData(itm, "theme");
-
       if (utils.getData(itm, "theme") === "streetview") {
         const pov = utils.getData(itm, "pov");
         const mapOptions = {
@@ -1663,7 +1583,6 @@ function initMap() {
         };
         return new window.google.maps.StreetViewPanorama(mapElement, mapOptions);
       }
-
       const mapOptions = {
         zoom,
         scrollwheel: utils.getData(itm, "scrollwheel"),
@@ -1695,24 +1614,23 @@ function initMap() {
       return null;
     });
   }
-} // import utils from "./utils";
+}
 
+// import utils from "./utils";
 /*-----------------------------------------------
 |   Hover Dir 
 -----------------------------------------------*/
 
-
 const hoverDirInit = () => {
   const hoverdir = document.querySelectorAll(".hoverdir-item > .hoverdir-item-content");
-
   if (hoverdir.length) {
     window.hoverDir(hoverdir);
   }
 };
+
 /*-----------------------------------------------
 |                     Isotope
 -----------------------------------------------*/
-
 
 const isotopeInit = () => {
   const Selector = {
@@ -1727,7 +1645,6 @@ const isotopeInit = () => {
   const ClassName = {
     ACTIVE: "active"
   };
-
   if (window.Isotope) {
     const masonryItems = document.querySelectorAll(Selector.DATA_ISOTOPE);
     masonryItems.length && masonryItems.forEach(masonryItem => {
@@ -1741,11 +1658,10 @@ const isotopeInit = () => {
           itemSelector: Selector.ISOTOPE_ITEM,
           layoutMode: "packery"
         };
-
         const options = window._.merge(defaultOptions, userOptions);
+        const isotope = new window.Isotope(masonryItem, options);
 
-        const isotope = new window.Isotope(masonryItem, options); //--------- filter -----------------
-
+        //--------- filter -----------------
         const filterElement = document.querySelector(Selector.DATA_FILER_NAV);
         filterElement?.addEventListener("click", function (e) {
           const item = e.target.dataset.filter;
@@ -1756,19 +1672,18 @@ const isotopeInit = () => {
             el.classList.remove(ClassName.ACTIVE);
           });
           e.target.classList.add(ClassName.ACTIVE);
-        }); //---------- filter end ------------
+        });
+        //---------- filter end ------------
 
         return isotope;
       });
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                 Glightbox                                */
-
 /* -------------------------------------------------------------------------- */
-
 
 const glightboxInit = () => {
   if (window.GLightbox) {
@@ -1776,22 +1691,19 @@ const glightboxInit = () => {
       selector: "[data-gallery]"
     });
   }
-}; // import utils from "./utils";
+};
 
+// import utils from "./utils";
 /*-----------------------------------------------
 |   Top navigation opacity on scroll
 -----------------------------------------------*/
-
-
 const navbarInit = () => {
   const navbar = document.querySelector("[data-navbar-on-scroll]");
   const headerOverlay = document.querySelector(".header-overlay");
   const headerIndicator = document.querySelector(".header-indicator-down");
   const headerText = document.querySelector(".header-text");
-
   if (navbar) {
     const windowHeight = window.innerHeight;
-
     const handleAlpha = () => {
       const scrollTop = window.pageYOffset;
       let alpha = scrollTop / windowHeight * 2;
@@ -1799,19 +1711,18 @@ const navbarInit = () => {
       alpha >= 1 && (alpha = 1);
       navbar.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
       headerOverlay.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
-      navbar.style.borderColor = `rgba(255, 255, 255, ${0.15 - alpha})`; // Reduce header content opacity on scroll
-
+      navbar.style.borderColor = `rgba(255, 255, 255, ${0.15 - alpha})`;
+      // Reduce header content opacity on scroll
       alpha >= 1 && (alpha = 1);
-
       if (headerIndicator) {
         headerIndicator.style.opacity = 1 - beta;
         headerText.style.opacity = 1 - beta;
       }
     };
-
     handleAlpha();
-    document.addEventListener("scroll", () => handleAlpha()); // Top navigation background toggle on mobile
+    document.addEventListener("scroll", () => handleAlpha());
 
+    // Top navigation background toggle on mobile
     navbar.addEventListener("show.bs.collapse", e => {
       e.currentTarget.classList.toggle("bg-dark");
     });
@@ -1820,10 +1731,10 @@ const navbarInit = () => {
     });
   }
 };
+
 /*-----------------------------------------------
 |   Inline Player [plyr]
 -----------------------------------------------*/
-
 
 const plyrInit = () => {
   if (window.Plyr) {
@@ -1835,19 +1746,15 @@ const plyrInit = () => {
           active: true
         }
       };
-
       const options = window._.merge(defaultOptions, userOptions);
-
       return new window.Plyr(plyr, options);
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                   Popover                                  */
-
 /* -------------------------------------------------------------------------- */
-
 
 const popoverInit = () => {
   const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
@@ -1855,12 +1762,10 @@ const popoverInit = () => {
     return new window.bootstrap.Popover(popoverTriggerEl);
   });
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                  Preloader                                 */
-
 /* -------------------------------------------------------------------------- */
-
 
 const preloaderInit = () => {
   const bodyElement = document.querySelector("body");
@@ -1872,33 +1777,29 @@ const preloaderInit = () => {
     }, 900);
   });
 };
+
 /* -------------------------------------------------------------------------- */
-
 /*                               Progressbar JS                               */
-
 /* -------------------------------------------------------------------------- */
 
 /*
   global ProgressBar
 */
-
-
 const progressBar = () => {
   const {
     merge
-  } = window._; // progressbar.js@1.0.0 version is used
+  } = window._;
+
+  // progressbar.js@1.0.0 version is used
   // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
 
   /*-----------------------------------------------
   |   Progress Circle
   -----------------------------------------------*/
-
   const progresCircle = document.querySelectorAll("[data-progress-circle]");
-
   if (progresCircle.length) {
     progresCircle.forEach(item => {
       const userOptions = utils.getData(item, "options");
-
       const getDefaultOptions = () => ({
         strokeWidth: 1.5,
         trailWidth: 1.4,
@@ -1918,13 +1819,14 @@ const progressBar = () => {
         step: (state, circle) => {
           // Change stroke color during progress
           // circle.path.setAttribute('stroke', state.color);
+
           // Change stroke width during progress
           // circle.path.setAttribute('stroke-width', state.width);
+
           const percentage = Math.round(circle.value() * 100);
           circle.setText(`<span class='value'>${percentage}<b>%</b></span> <span>${userOptions.text || ""}</span>`);
         }
       });
-
       const options = merge(getDefaultOptions(), userOptions);
       const bar = new ProgressBar.Circle(item, options);
       const linearGradient = `<defs>
@@ -1935,7 +1837,6 @@ const progressBar = () => {
       </defs>`;
       bar.svg.insertAdjacentHTML("beforeEnd", linearGradient);
       let playProgressTriggered = false;
-
       const progressCircleAnimation = () => {
         if (!playProgressTriggered) {
           if (utils.isScrolledIntoView(item).partial) {
@@ -1943,27 +1844,23 @@ const progressBar = () => {
             playProgressTriggered = true;
           }
         }
-
         return playProgressTriggered;
       };
-
       progressCircleAnimation();
       window.addEventListener("scroll", () => {
         progressCircleAnimation();
       });
     });
   }
+
   /*-----------------------------------------------
   |   Progress Line
   -----------------------------------------------*/
 
-
   const progresLine = document.querySelectorAll("[data-progress-line]");
-
   if (progresLine.length) {
     progresLine.forEach(item => {
       const userOptions = utils.getData(item, "options");
-
       const getDefaultOptions = () => ({
         strokeWidth: 1,
         trailWidth: 1.4,
@@ -1989,13 +1886,14 @@ const progressBar = () => {
         step: (state, line) => {
           // Change stroke color during progress
           // circle.path.setAttribute('stroke', state.color);
+
           // Change stroke width during progress
           // circle.path.setAttribute('stroke-width', state.width);
+
           const percentage = Math.round(line.value() * 100);
           line.setText(`<span class='value'>${percentage}<b>%</b></span> <span>${userOptions.text || ""}</span>`);
         }
       });
-
       const options = merge(getDefaultOptions(), userOptions);
       const bar = new ProgressBar.Line(item, options);
       const linearGradient = `<defs>
@@ -2006,7 +1904,6 @@ const progressBar = () => {
       </defs>`;
       bar.svg.insertAdjacentHTML("beforeEnd", linearGradient);
       let playProgressTriggered = false;
-
       const progressCircleAnimation = () => {
         if (!playProgressTriggered) {
           if (utils.isScrolledIntoView(item).partial) {
@@ -2014,10 +1911,8 @@ const progressBar = () => {
             playProgressTriggered = true;
           }
         }
-
         return playProgressTriggered;
       };
-
       progressCircleAnimation();
       window.addEventListener("scroll", () => {
         progressCircleAnimation();
@@ -2025,12 +1920,10 @@ const progressBar = () => {
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                         Bootstrap Animated Progress                        */
-
 /* -------------------------------------------------------------------------- */
-
 
 const progressAnimationToggle = () => {
   const animatedProgress = document.querySelectorAll("[data-progress-animation]");
@@ -2042,21 +1935,20 @@ const progressAnimationToggle = () => {
     });
   });
 };
+
 /* -------------------------------------------------------------------------- 
 |                                 Rellax js                                 
 /* -------------------------------------------------------------------------- */
-
 
 const rellaxInit = () => {
   return window.Rellax && new window.Rellax("[data-parallax]", {
     speed: -3
   });
 };
+
 /*-----------------------------------------------
 |  Swiper
 -----------------------------------------------*/
-
-
 const swiperInit = () => {
   const Selector = {
     DATA_SWIPER: "[data-swiper]",
@@ -2073,13 +1965,11 @@ const swiperInit = () => {
     SLIDE_CHANGE: "slideChange"
   };
   const swipers = document.querySelectorAll(Selector.DATA_SWIPER);
-
   if (swipers.length) {
     swipers.forEach(swiper => {
       const options = utils.getData(swiper, DATA_KEY.SWIPER);
       const thumbsOptions = options.thumb;
       let thumbsInit;
-
       if (thumbsOptions) {
         const thumbImages = swiper.querySelectorAll(Selector.IMG);
         let slides = "";
@@ -2093,17 +1983,14 @@ const swiperInit = () => {
         const thumbs = document.createElement("div");
         thumbs.setAttribute("class", "swiper thumb");
         thumbs.innerHTML = `<div class='swiper-wrapper'>${slides}</div>`;
-
         if (thumbsOptions.parent) {
           const parent = document.querySelector(thumbsOptions.parent);
           parent.parentNode.appendChild(thumbs);
         } else {
           swiper.parentNode.appendChild(thumbs);
         }
-
         thumbsInit = new window.Swiper(thumbs, thumbsOptions);
       }
-
       const swiperNav = swiper.querySelector(Selector.SWIPER_NAV);
       const newSwiper = new window.Swiper(swiper, {
         navigation: {
@@ -2136,8 +2023,9 @@ const swiperInit = () => {
             });
           }
         }
-      }); //- zanimation effect start
+      });
 
+      //- zanimation effect start
       if (swiper) {
         newSwiper.on(Events.SLIDE_CHANGE, () => {
           const timelineElements = swiper.querySelectorAll(Selector.DATA_ZANIM_TIMELINE);
@@ -2149,41 +2037,35 @@ const swiperInit = () => {
             });
           });
         });
-      } //- zanimation effect end
-
+      }
+      //- zanimation effect end
     });
   }
 };
+
 /* eslint-disable no-param-reassign */
 
 /*-----------------------------------------------
 |  Testimonial Swiper
 -----------------------------------------------*/
 
-
 const setBgImage = (el, testimonialAvatar) => {
   const avatar = utils.getData(el.querySelector('[data-avatar]'), 'avatar');
   testimonialAvatar.style.backgroundImage = `url(${avatar})`;
 };
-
 const testimonialSwiperInit = () => {
   const testimonials = document.querySelectorAll('.testimonial');
-
   if (testimonials.length) {
     testimonials.forEach(testimonial => {
       const testimonialSlider = testimonial.querySelector('.testimonial-slider');
-
       if (testimonialSlider) {
         const testimonialAvatar = testimonial.querySelector('.testimonial-avatar');
-
         if (testimonialAvatar) {
           setBgImage(testimonial, testimonialAvatar);
         }
-
         const {
           swiper
         } = testimonialSlider;
-
         if (swiper) {
           swiper.on('slideChange', e => {
             const slider = e.slides[e.snapIndex];
@@ -2194,20 +2076,17 @@ const testimonialSwiperInit = () => {
     });
   }
 };
+
 /*-----------------------------------------------
 |  Thumbnail Grid
 -----------------------------------------------*/
-
-
 const initNavBtns = grid => {
   const navBtns = grid.querySelectorAll("[data-thumbnail-grid-nav]");
   navBtns.forEach(navBtn => {
     const target = utils.getData(navBtn, "grid-target");
-
     if (target === "#!") {
       navBtn.classList.add("disabled");
     }
-
     navBtn.addEventListener("click", () => {
       if (target !== "#!") {
         window.bootstrap.Collapse.getOrCreateInstance(target).show();
@@ -2215,20 +2094,16 @@ const initNavBtns = grid => {
     });
   });
 };
-
 const initCloseBtn = content => {
   const closeBtn = content.querySelector(".thumbnail-close");
-
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       window.bootstrap.Collapse.getOrCreateInstance(content).hide();
     });
   }
 };
-
 const thumbnailgridInit = () => {
   const thumbnailGridContainer = document.querySelectorAll(".thumbnail-grid-container");
-
   if (thumbnailGridContainer.length) {
     thumbnailGridContainer.forEach(thumbnailGrid => {
       const thumbnailGridContents = thumbnailGrid.querySelectorAll(".thumbnail-grid-content");
@@ -2252,7 +2127,6 @@ const thumbnailgridInit = () => {
       });
       window.addEventListener("resize", () => {
         const collapse = thumbnailGrid.querySelector(".collapse.show");
-
         if (collapse) {
           const gridderItem = collapse.closest(".thumbnail-grid-item");
           gridderItem.style.marginBottom = window.getComputedStyle(collapse).height;
@@ -2261,18 +2135,15 @@ const thumbnailgridInit = () => {
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                    Toast                                   */
-
 /* -------------------------------------------------------------------------- */
-
 
 const toastInit = () => {
   const toastElList = [].slice.call(document.querySelectorAll('.toast'));
   toastElList.map(toastEl => new window.bootstrap.Toast(toastEl));
   const liveToastBtn = document.getElementById('liveToastBtn');
-
   if (liveToastBtn) {
     const liveToast = new window.bootstrap.Toast(document.getElementById('liveToast'));
     liveToastBtn.addEventListener('click', () => {
@@ -2280,29 +2151,23 @@ const toastInit = () => {
     });
   }
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                   Tooltip                                  */
-
 /* -------------------------------------------------------------------------- */
-
-
 const tooltipInit = () => {
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   tooltipTriggerList.map(tooltipTriggerEl => new window.bootstrap.Tooltip(tooltipTriggerEl, {
     trigger: 'hover'
   }));
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                 Typed Text                                 */
-
 /* -------------------------------------------------------------------------- */
-
 
 const typedTextInit = () => {
   const typedTexts = document.querySelectorAll("[data-typed-text]");
-
   if (typedTexts.length && window.Typed) {
     typedTexts.forEach(typedText => {
       return new window.Typed(typedText, {
@@ -2314,6 +2179,7 @@ const typedTextInit = () => {
     });
   }
 };
+
 /*-----------------------------------------------
 |                 Zanimation
 -----------------------------------------------*/
@@ -2321,24 +2187,19 @@ const typedTextInit = () => {
 /*
 global CustomEase, gsap
 */
-
-
 CustomEase.create('CubicBezier', '.77,0,.18,1');
+
 /*-----------------------------------------------
 |   Global Functions
 -----------------------------------------------*/
-
 const filterBlur = () => {
   let blur = 'blur(5px)';
   const isIpadIphoneMacFirefox = (window.is.ios() || window.is.mac()) && window.is.firefox();
-
   if (isIpadIphoneMacFirefox) {
     blur = 'blur(0px)';
   }
-
   return blur;
 };
-
 const zanimationEffects = {
   default: {
     from: {
@@ -2470,7 +2331,6 @@ const zanimationEffects = {
     duration: 0.8
   }
 };
-
 if (utils.isRTL()) {
   Object.keys(zanimationEffects).forEach(key => {
     if (zanimationEffects[key].from.x) {
@@ -2478,7 +2338,6 @@ if (utils.isRTL()) {
     }
   });
 }
-
 const zanimation = (el, callback) => {
   const Selector = {
     DATA_ZANIM_TIMELINE: '[data-zanim-timeline]',
@@ -2487,18 +2346,16 @@ const zanimation = (el, callback) => {
   const DATA_KEY = {
     DATA_ZANIM_TRIGGER: 'data-zanim-trigger'
   };
+
   /*-----------------------------------------------
    |   Get Controller
    -----------------------------------------------*/
-
   let controllerZanim;
   const currentBreakpointName = utils.getCurrentScreenBreakpoint().currentBreakpoint;
   const currentBreakpointVal = utils.getCurrentScreenBreakpoint().breakpointStartVal;
-
   const getController = element => {
     let options = {};
     let controller = {};
-
     if (element.hasAttribute(`data-zanim-${currentBreakpointName}`)) {
       controllerZanim = `zanim-${currentBreakpointName}`;
     } else {
@@ -2510,7 +2367,6 @@ const zanimation = (el, callback) => {
       attributes.forEach(attribute => {
         if (attribute !== DATA_KEY.DATA_ZANIM_TRIGGER && attribute.startsWith('data-zanim-')) {
           const breakPointName = attribute.split('data-zanim-')[1];
-
           if (utils.breakpoints[breakPointName] < currentBreakpointVal) {
             animationBreakpoints.push({
               name: breakPointName,
@@ -2520,17 +2376,14 @@ const zanimation = (el, callback) => {
         }
       });
       controllerZanim = undefined;
-
       if (animationBreakpoints.length !== 0) {
         animationBreakpoints = animationBreakpoints.sort((a, b) => a.size - b.size);
         const activeBreakpoint = animationBreakpoints.pop();
         controllerZanim = `zanim-${activeBreakpoint.name}`;
       }
     }
-
     const userOptions = utils.getData(element, controllerZanim);
     controller = window._.merge(options, userOptions);
-
     if (!(controllerZanim === undefined)) {
       if (userOptions.animation) {
         options = zanimationEffects[userOptions.animation];
@@ -2538,7 +2391,6 @@ const zanimation = (el, callback) => {
         options = zanimationEffects.default;
       }
     }
-
     if (controllerZanim === undefined) {
       options = {
         delay: 0,
@@ -2548,22 +2400,19 @@ const zanimation = (el, callback) => {
         to: {}
       };
     }
+
     /*-----------------------------------------------
       |   populating the controller
       -----------------------------------------------*/
-
-
     controller.delay || (controller.delay = options.delay);
     controller.duration || (controller.duration = options.duration);
     controller.from || (controller.from = options.from);
     controller.to || (controller.to = options.to);
-
     if (controller.ease) {
       controller.to.ease = controller.ease;
     } else {
       controller.to.ease = options.ease;
     }
-
     return controller;
   };
   /*-----------------------------------------------
@@ -2574,9 +2423,7 @@ const zanimation = (el, callback) => {
    |   For Timeline
    -----------------------------------------------*/
 
-
   const zanimTimeline = el.hasAttribute('data-zanim-timeline');
-
   if (zanimTimeline) {
     const timelineOption = utils.getData(el, 'zanim-timeline');
     const timeline = gsap.timeline(timelineOption);
@@ -2593,13 +2440,12 @@ const zanimation = (el, callback) => {
     const controller = getController(el);
     callback(gsap.fromTo(el, controller.duration, controller.from, controller.to).delay(controller.delay).pause());
   }
-
   callback(gsap.timeline());
 };
+
 /*-----------------------------------------------
 |    Zanimation Init
 -----------------------------------------------*/
-
 
 const zanimationInit = () => {
   const Selector = {
@@ -2612,37 +2458,32 @@ const zanimationInit = () => {
   const Events = {
     SCROLL: 'scroll'
   };
+
   /*-----------------------------------------------
    |   Triggering zanimation when the element enters in the view
    -----------------------------------------------*/
-
   const triggerZanimation = () => {
     const triggerElement = document.querySelectorAll(Selector.DATA_ZANIM_TRIGGER);
     triggerElement.forEach(el => {
       if (utils.isElementIntoView(el) && el.hasAttribute(DATA_KEY.DATA_ZANIM_TRIGGER)) {
         zanimation(el, animation => animation.play());
-
         if (!document.querySelector(Selector.DATA_ZANIM_REPEAT)) {
           el.removeAttribute(DATA_KEY.DATA_ZANIM_TRIGGER);
         }
       }
     });
   };
-
   triggerZanimation();
   window.addEventListener(Events.SCROLL, () => triggerZanimation());
 };
-
 const gsapAnimation = {
   zanimationInit,
   zanimation
 };
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Theme Initialization                            */
-
 /* -------------------------------------------------------------------------- */
-
 docReady(detectorInit);
 docReady(tooltipInit);
 docReady(progressBar);

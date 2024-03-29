@@ -3,3 +3,24 @@
 // user-variables.scss
 //
 // Place your own variable overrides here, these will override any Bootstrap and theme variables.
+
+@font-face {
+    font-family: 'ManropeBold';
+    src: url('../fonts/Manrope-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope-Medium.ttf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+}
+
+$font-family-sans-serif: ManropeBold, Arial, serif !default;
+$font-family-base: Manrope, Arial, serif !default;
+
+::selection {
+    background: #acb9f1;
+}
