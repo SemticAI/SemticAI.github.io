@@ -86,85 +86,76 @@ mixin Projects
 				description: `We spread your digital products <br> all over the world`, 
 			})
 
-mixin RecentProjects(title, containerClass)
+mixin RecentProjects(title, containerClass, language)
+	if language == 'en'
+		-
+			var lang_versions = {
+				'h2': 'recent projects',
+				'p': 'successful projects, happy clients, great results',
+				'c1': 'AI Assistants',
+				'c2': 'Knowledge Bases',
+				'c3': 'AI Agents',
+				'projects': [
+					{ "img": 1, "title": "AI Assistant A", "description": "Multipurpose HTML template <br> with bootstrap 5", "type": "aiassistants", "delay": 0 },
+					{ "img": 4, "title": "Knowledge Base A", "description": "More than 50K happy <br> real state clients", "type": "knowledgebases", "delay": 0.3 },
+					{ "img": 7, "title": "AI Agent A", "description": "Beautiful packaging design done <br> by our designers", "type": "aiagents", "delay": 0.6 },
+					{ "img": 2, "title": "AI Assistant B", "description": "Popular mobile accessories <br> in 2021", "type": "aiassistants", "delay": 0.1 },
+					{ "img": 5, "title": "Knowledge Base B", "description": "Most secured and optimized <br> mobile app development", "type": "knowledgebases", "delay": 0.4 },
+					{ "img": 8, "title": "AI Agent B", "description": "Exclusive model photography by <br> award winning photographers", "type": "aiagents", "delay": 0.35 },
+					{ "img": 3, "title": "AI Assistant C", "description": "Most user friendly user <br> interface design", "type": "aiassistants", "delay": 0.2 },
+					{ "img": 6, "title": "Knowledge Base C", "description": "More than 50K blog posts <br> on different subjects", "type": "knowledgebases", "delay": 0.5 },
+					{ "img": 9, "title": "AI Agent C", "description": "We spread your digital products <br> all over the world", "type": "aiagents", "delay": 0.4 }
+				]
+			}
+	else if language == 'pl'
+		-
+			var lang_versions = {
+				'h2': 'ostatnie projekty',
+				'p': 'udane projekty, zadowoleni klienci, świetne wyniki',
+				'c1': 'Asystent AI',
+				'c2': 'Baza Wiedzy',
+				'c3': 'Agent AI',
+				'projects': [
+					{ "img": 1, "title": "Asystent AI A", "description": "Wszechstronny szablon HTML <br> z bootstrap 5", "type": "aiassistants", "delay": 0 },
+					{ "img": 4, "title": "Baza Wiedzy A", "description": "Ponad 50 tys. zadowolonych <br> klientów nieruchomości", "type": "knowledgebases", "delay": 0.3 },
+					{ "img": 7, "title": "Agent AI A", "description": "Piękny projekt opakowań wykonany <br> przez naszych projektantów", "type": "aiagents", "delay": 0.6 },
+					{ "img": 2, "title": "Asystent AI B", "description": "Popularne akcesoria mobilne <br> w 2021", "type": "aiassistants", "delay": 0.1 },
+					{ "img": 5, "title": "Baza Wiedzy B", "description": "Najbardziej zabezpieczony i optymalizowany <br> rozwój aplikacji mobilnych", "type": "knowledgebases", "delay": 0.4 },
+					{ "img": 8, "title": "Agent AI B", "description": "Ekskluzywna fotografia modeli przez <br> nagradzanych fotografów", "type": "aiagents", "delay": 0.35 },
+					{ "img": 3, "title": "Asystent AI C", "description": "Najbardziej przyjazny użytkownikowi <br> projekt interfejsu", "type": "aiassistants", "delay": 0.2 },
+					{ "img": 6, "title": "Baza Wiedzy C", "description": "Ponad 50 tys. postów na blogu <br> na różne tematy", "type": "knowledgebases", "delay": 0.5 },
+					{ "img": 9, "title": "Agent AI C", "description": "Rozpowszechniamy twoje produkty cyfrowe <br> na całym świecie", "type": "aiagents", "delay": 0.4 }
+				]
+			}
 	+Section(`${containerClass ? containerClass : 'container'}`).text-center.pb-3&attributes(attributes)#portfolio
 		if title
 			.row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
 				.col-12.mb-4
 					.overflow-hidden
-						h2.fs-md-5.mb-2(data-zanim-xs!={'duration': 1.5,'delay': 0}) recent projects
+						h2.fs-md-5.mb-2(data-zanim-xs!={'duration': 1.5,'delay': 0})!=lang_versions.h2
 					.overflow-hidden
-						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) successful projects, happy clients, great results
+						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1})!=lang_versions.p
 					.overflow-hidden
 						hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
 		ul.nav.font-sans-serif.mb-3.justify-content-center(data-filter-nav)&attributes(attributes)
 			li.nav-item
 				a.isotope-nav.text-uppercase.font-base.active(href ='#!' data-filter='*') all
 			li.nav-item 
-				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.photography') Photography
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.aiassistants')!=lang_versions.c1
 			li.nav-item 
-				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.design') Design
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.knowledgebases')!=lang_versions.c2
 			li.nav-item 
-				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.mobile') Mobile
-			li.nav-item 
-				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.marketing') Marketing	
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.aiagents')!=lang_versions.c3
 		.row.g-3.mt-3(data-rp-isotope!={
 			layoutMode: 'packery',   
 		})
-			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0})
-				+ProjectItem({
-					img: 1, 
-					title: `Website Design`, 
-					description: `Multipurpose HTML template <br> with bootstrap 5`, 
-				}) 
-			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.1})
-				+ProjectItem({
-					img: 2, 
-					title: `UI/UX Design`, 
-					description: `Most user friendly user <br> interface design`, 
-				}) 
-			.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.2})
-				+ProjectItem({
-					img: 3, 
-					title: `Mobile Accessories`, 
-					description: `Popular mobile accessories <br> in 2021`, 
-				}) 
-			.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.3})
-				+ProjectItem({
-					img: 4, 
-					title: `Interior Photography`, 
-					description: `More than 50K happy <br> real state clients`, 
-				})
-			.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.4})
-				+ProjectItem({
-					img: 5, 
-					title: `App Development`, 
-					description: `Most secured and optimized <br> mobile app development`, 
-				})
-			.col-sm-6.col-lg-4.px-2.isotope-item.marketing(data-zanim-xs!={'delay': 0.5})
-				+ProjectItem({
-					img: 6, 
-					title: `Content Writing`, 
-					description: ` More than 50K blog posts <br> on different subjects`, 
-				})
-			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.6})
-				+ProjectItem({
-					img: 7, 
-					title: `Packaging Designing`, 
-					description: `Beautiful packaging design done <br> by our designers`, 
-				})
-			.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.35})
-				+ProjectItem({
-					img: 8, 
-					title: `Model Photography`, 
-					description: `Exclusive model photography by <br> award winning photographers`, 
-				})
-			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.4})
-				+ProjectItem({
-					img: 9, 
-					title: `Digital Marketing`, 
-					description: `We spread your digital products <br> all over the world`, 
-				})
+			each project, index in lang_versions['projects']
+				.col-sm-6.col-lg-4.px-2.isotope-item(class=project.type data-zanim-xs!=`{'delay': ${delay}}`)
+					+ProjectItem({
+						img: project.img, 
+						title: project.title, 
+						description: project.description.replace('<br>', '\n')
+					})
 
 mixin WorkSingleCarousel
 	.col-12.mb-4
