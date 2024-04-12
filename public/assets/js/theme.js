@@ -1709,8 +1709,8 @@ const navbarInit = () => {
       let alpha = scrollTop / windowHeight * 2;
       let beta = scrollTop / windowHeight;
       alpha >= 1 && (alpha = 1);
-      navbar.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
-      headerOverlay.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
+      navbar.style.backgroundColor = `rgba(54, 40, 138, ${alpha})`;
+      headerOverlay.style.backgroundColor = `rgba(54, 40, 138, ${alpha})`;
       navbar.style.borderColor = `rgba(255, 255, 255, ${0.15 - alpha})`;
       // Reduce header content opacity on scroll
       alpha >= 1 && (alpha = 1);
@@ -1864,7 +1864,7 @@ const progressBar = () => {
       const getDefaultOptions = () => ({
         strokeWidth: 1,
         trailWidth: 1.4,
-        trailColor: "#555",
+        trailColor: "#5b66c5",
         color: "#eee",
         easing: "easeInOut",
         duration: 3000,
