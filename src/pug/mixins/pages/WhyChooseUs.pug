@@ -1,53 +1,75 @@
-mixin WhyChooseUs
+mixin WhyChooseUs(language)
+	if language == 'en'
+		-
+			var lang_versions = {
+				'header': 'Why choose us',
+				'copy': 'Choosing an AI agency is tough. Let us convince you',
+				'features': [
+					{
+						'title': 'Experience',
+						'copy': 'We\'ve been leading generative AI research long before it became mainstream. Our rich experience across various AI fields enables us to create innovative, cutting-edge solutions.'
+					},
+					{
+						'title': 'Insight',
+						'copy': 'Beyond AI Expertise: Our deep understanding of diverse business operations enhances our AI solutions, ensuring they align perfectly with your unique industry needs.'
+					},
+					{
+						'title': 'Flexibility',
+						'copy': 'Customized AI Solutions: We tailor AI solutions to fit your unique business needs and budget, adapting our technology to match your vision, whether you\'re a startup or a global enterprise.'
+					}
+				]
+			}
+	else if language == 'pl'
+		-
+			var lang_versions = {
+				'header': 'Dlaczego My',
+				'copy': 'Wybór agencji AI jest trudny. Pozwól, że Cię przekonamy',
+				'features': [
+					{
+						'title': 'Doświadczenie',
+						'copy': 'Prowadzimy badania nad generatywną AI znacznie wcześniej, zanim stała się ona popularna. Nasze bogate doświadczenie w różnych dziedzinach AI pozwala nam tworzyć innowacyjne, nowoczesne rozwiązania.'
+					},
+					{
+						'title': 'Wgląd',
+						'copy': 'Poza ekspertyzą w dziedzinie AI: Nasze głębokie zrozumienie różnych operacji biznesowych wzmacnia nasze rozwiązania AI, zapewniając, że idealnie pasują do unikalnych potrzeb Twojej branży.'
+					},
+					{
+						'title': 'Elastyczność',
+						'copy': 'Spersonalizowane rozwiązania AI: Dostosowujemy rozwiązania AI do Twoich unikalnych potrzeb biznesowych i budżetu, dostosowując naszą technologię do Twojej wizji, niezależnie od tego, czy jesteś startupem czy globalnym przedsiębiorstwem.'
+					}
+				]
+			}
 	+Section
 		.row.text-center.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')&attributes(attributes)
 			.col
 				.overflow-hidden
-					h2.fs-sm-5.mb-2(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Why choose us
+					h2.fs-sm-5.mb-2(data-zanim-xs!={'duration': 1.5, 'delay': 0})= lang_versions['header']
 				.overflow-hidden 
-					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Choosing an AI agency is tough. 
-						br.d-block.d-sm-none
-						| let us convince you
+					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1})= lang_versions['copy']
 				.overflow-hidden
 					hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
 		.row.text-center.text-md-start
 			.col-sm-6.col-md-4.px-lg-4.pt-md-3.pt-lg-0.pb-lg-4.h-100.feature-item.position-relative
-				h5.ps-lg-3 Experience
+				h5.ps-lg-3= lang_versions['features'][0]['title']
 				hr.hr-feature.d-block.d-sm-none.bg-black.mt-0.mb-2
 				.border-lg-top.border-lg-end.py-lg-3.ps-lg-0.line-indicator.line-indicator-top.line-indicator-top-1
 					.checked-indicator.checked-indicator-top
 						span.fas.fa-check(data-fa-transform="shrink-2")
-					p.px-lg-3.mb-0 We've been leading generative AI research
-						br.d-block.d-sm-none
-						|  long before it became mainstream.
-						br.d-block.d-sm-none
-						|  Our rich experience across various AI fields enables us
-						br.d-block.d-sm-none
-						|  to create innovative, cutting-edge solutions.
+					p.px-lg-3.mb-0= lang_versions['features'][0]['copy']
 			.col-sm-6.col-md-4.px-lg-4.pt-3.pt-sm-0.pt-md-3.pt-lg-0.pb-lg-4.h-100.feature-item.position-relative
-				h5.ps-lg-3 Insight
+				h5.ps-lg-3= lang_versions['features'][1]['title']
 				hr.hr-feature.d-block.d-sm-none.border-black.mt-0.mb-2
 				.border-lg-top.border-lg-end.py-lg-3.ps-lg-0.line-indicator.line-indicator-top.line-indicator-top-2
 					.checked-indicator.checked-indicator-top
 						span.fas.fa-check(data-fa-transform="shrink-2")
-					p.px-lg-3.mb-md-0 Beyond AI Expertise: Our deep understanding of diverse business operations 
-						br.d-block.d-sm-none
-						|  enhances our AI solutions, 
-						br.d-block.d-sm-none
-						|  ensuring they align perfectly with your unique industry needs.
+					p.px-lg-3.mb-md-0= lang_versions['features'][1]['copy']
 			.col-sm-6.col-md-4.px-lg-4.pt-3.pt-lg-0.pb-lg-4.h-100.feature-item.position-relative
-				h5.ps-lg-3 Flexibility
+				h5.ps-lg-3= lang_versions['features'][2]['title']
 				hr.hr-feature.d-block.d-sm-none.bg-black.mt-0.mb-2
 				.border-lg-top.border-lg-end.py-lg-3.ps-lg-0.line-indicator.line-indicator-top.line-indicator-top-1
 					.checked-indicator.checked-indicator-top
 						span.fas.fa-check(data-fa-transform="shrink-2")
-					p.px-lg-3.mb-0 Customized AI Solutions: We tailor AI solutions to fit   
-						br.d-block.d-sm-none
-						| your unique business needs and budget, 
-						br.d-block.d-sm-none
-						| adapting our technology to match your vision, 
-						br.d-block.d-sm-none
-						| whether you're a startup or a global enterprise.
+					p.px-lg-3.mb-0= lang_versions['features'][2]['copy']
 			.col-12.my-3.d-none.d-md-block
 				.row.justify-content-center
 					.col-10.p-0
@@ -60,7 +82,7 @@ mixin WhyChooseUs
 			//- 		hr.hr-feature.d-block.d-sm-none.border-black.mt-0.mb-2
 			//- 	p.px-lg-3.pt-lg-3.mb-md-0 We have a number of brilliant minds ready
 			//- 		br.d-block.d-sm-none
-			//- 		|  for building your 
+			//- 		|	for building your 
 			//- 		br.d-none.d-md-block.d-xl-none
 			//- 		| new projects.
 			//- .col-sm-6.col-md-4.pt-3.pt-lg-4.px-lg-4.feature-item.position-relative
@@ -71,7 +93,7 @@ mixin WhyChooseUs
 			//- 		hr.hr-feature.d-block.d-sm-none.border-black.mt-0.mb-2
 			//- 	p.px-lg-3.pt-lg-3.mb-0 We are always at your service 24/7 for 
 			//- 		br.d-block.d-sm-none
-			//- 		|  solving any difficulties you would face.
+			//- 		|	solving any difficulties you would face.
 			//- .col-sm-6.col-md-4.pt-3.pt-lg-4.px-lg-4.feature-item.position-relative
 			//- 	.border-lg-bottom.border-lg-end.pt-0.py-lg-3.line-indicator.line-indicator-bottom.line-indicator-bottom-3
 			//- 		.checked-indicator.checked-indicator-bottom
@@ -80,4 +102,4 @@ mixin WhyChooseUs
 			//- 		hr.hr-feature.d-block.d-sm-none.border-black.mt-0.mb-2
 			//- 	p.px-lg-3.pt-lg-3.mb-0 #{theme} has a bunch of energetic people
 			//- 		br.d-block.d-sm-none
-			//- 		|  who love what they are doing with us.
+			//- 		|	who love what they are doing with us.

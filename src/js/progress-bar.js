@@ -93,7 +93,7 @@ const progressBar = () => {
       const getDefaultOptions = () => ({
         strokeWidth: 1,
         trailWidth: 1.4,
-        trailColor: "#555",
+        trailColor: "#5b66c5",
         color: "#eee",
         easing: "easeInOut",
         duration: 3000,

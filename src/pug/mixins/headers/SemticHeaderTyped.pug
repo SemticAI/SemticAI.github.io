@@ -1,10 +1,21 @@
-mixin SemticHeaderTyped(image)
-  +HeaderSection({
-    image: `${CWD}assets/img/headers/${image}.jpg`,
-    className: 'overlay overlay-2 parallax',
-    attrs: {
-      'data-rellax-percentage': '0.5'
-    }
-  }).overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
-    +HeaderContent(`AI in your <br class="d-block d-sm-none"> <span class="typed-text" data-typed-text='["company", "product", "workflow", "life"]'></span>`, `Bring the power of AI to your business <br class="d-none d-sm-block"> and unlock its full potential `).align-items-center.vh-100
-    +HeaderIndicatorDown
+mixin SemticHeaderTyped(image, language)
+  if language == 'en'
+    +HeaderSection({
+      image: `${CWD}assets/img/headers/${image}.jpg`,
+      className: 'overlay overlay-2 parallax',
+      attrs: {
+        'data-rellax-percentage': '0.5'
+      }
+    }).overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+      +HeaderContent(`AI in your <br class="d-block d-sm-none"> <span class="typed-text" data-typed-text='["company", "product", "workflow", "life"]'></span>`, `Bring the power of AI to your business <br class="d-none d-sm-block"> and unlock its full potential `).align-items-center.vh-100
+      +HeaderIndicatorDown
+  else if language == 'pl'
+    +HeaderSection({
+      image: `${CWD}assets/img/headers/${image}.jpg`,
+      className: 'overlay overlay-2 parallax',
+      attrs: {
+        'data-rellax-percentage': '0.5'
+      }
+    }).overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+      +HeaderContent(`AI w <br class="d-block d-sm-none"> <span class="typed-text" data-typed-text='["Twojej firmie", "Twoim produkcie", "Twoim procesie", "Twoim życiu"]'></span>`, `Wnieś moc AI do swojego biznesu <br class="d-none d-sm-block"> i odblokuj jego pełny potencjał `).align-items-center.vh-100
+      +HeaderIndicatorDown

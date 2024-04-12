@@ -35,20 +35,20 @@ prepend scripts
 
 
 append mainContent
-  +NavbarOnePage
-  +SemticHeaderTyped('header-7')
-  +Services('Our Services')#services
-  +Performance#performance
-  +WhyChooseUs#whyus
-  +NoWorries#noworries
-  +Process#process
-  +CtaStartNewProject
-  +RecentProjects(true, 'container-fluid', language)#projects
+  +NavbarOnePage(language)
+  +SemticHeaderTyped('header-7', language)
+  +Services('Our Services', language)#services
+  +Performance(language)#performance
+  +WhyChooseUs(language)#whyus
+  +NoWorries(language)#noworries
+  +Process(language)#process
+  +CtaStartNewProject(language)
+  //- +RecentProjects(true, 'container-fluid', language)#projects
   //- //- TODO: change recent projects to example projects
   //- +CtaWorks
   //- TODO: add back when example projects are ready
   //- +BlogGrid(true)#blog TODO: add back when there are posts to show
-  +ContactShort('Connect With Us')#contact
+  +ContactShort(language)#contact
 
 
 

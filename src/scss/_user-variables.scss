@@ -24,3 +24,37 @@ $font-family-base: Manrope, Arial, serif !default;
 ::selection {
     background: #acb9f1;
 }
+
+$white: #fff !default;
+$gray-100: #f8f9ff  !default;
+$gray-200: #f8f9ff !default;
+$gray-300: #acb9f1 !default;
+$gray-400: #acb9f1 !default;
+$gray-500: #acb9f1 !default;
+$gray-600: #acb9f1 !default;
+$gray-700: #acb9f1 !default;
+$gray-800: #5b66c5 !default;
+$gray-900: #5b66c5 !default;
+$gray-1000: #5b66c5 !default;
+$gray-1100: #36288a !default;
+$black: #36288a !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    'black': $black,
+    '100': $gray-100,
+    '200': $gray-200,
+    '300': $gray-300,
+    '400': $gray-400,
+    '500': $gray-500,
+    '600': $gray-600,
+    '700': $gray-700,
+    '800': $gray-800,
+    '900': $gray-900,
+    '1000': $gray-1000,
+    '1100': $gray-1100,
+    'white': $white,
+  ),
+  $grays
+);

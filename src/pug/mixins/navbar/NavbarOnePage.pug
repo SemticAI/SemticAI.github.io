@@ -1,4 +1,24 @@
-mixin NavbarOnePage
+mixin NavbarOnePage(language)
+  if language == 'en'
+    -
+      var lang_versions = {
+        'services': 'Services',
+        'whyus': 'Why Us',
+        'process': 'Our Process',
+        'contact': 'Contact',
+        'change_language': 'pl',
+        'change_language_path': `${CWD}pl/index.html`
+      }
+  else if language == 'pl'
+    -
+      var lang_versions = {
+        'services': 'Usługi',
+        'whyus': 'Dlaczego My',
+        'process': 'Nasz Proces',
+        'contact': 'Kontakt',
+        'change_language': 'en',
+        'change_language_path': `${CWD}index.html`
+      }
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-theme.fixed-top.py-0(data-navbar-on-scroll)
     .container
       a.navbar-brand.fw-normal.ls-2(href=`${CWD}index.html`)
@@ -12,15 +32,15 @@ mixin NavbarOnePage
           li.nav-item
             a.nav-link(href="#services") 
               span.nav-link-text
-                +cleanText('Services')
+                +cleanText(lang_versions['services'])
           li.nav-item
             a.nav-link(href="#whyus") 
               span.nav-link-text
-                +cleanText('Why Us')
+                +cleanText(lang_versions['whyus'])
           li.nav-item
             a.nav-link(href="#process") 
               span.nav-link-text
-                +cleanText('Our Process')             
+                +cleanText(lang_versions['process'])             
           //- li.nav-item
           //-   a.nav-link(href="#projects") 
           //-     span.nav-link-text
@@ -28,4 +48,8 @@ mixin NavbarOnePage
           li.nav-item
             a.nav-link(href="#contact") 
               span.nav-link-text
-                +cleanText('Contact')
+                +cleanText(lang_versions['contact'])
+          li.nav-item
+            a.nav-link(href=lang_versions['change_language_path']) 
+              span.nav-link-text
+                +cleanText(lang_versions['change_language'])

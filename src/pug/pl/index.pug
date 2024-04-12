@@ -1,18 +1,18 @@
-extends layouts/LayoutTheme
-include mixins/navbar/NavbarOnePage
-include mixins/headers/SemticHeaderTyped
-include mixins/headers/Mixin
-include mixins/pages/service/Services
-include mixins/pages/service/Performance
-include mixins/pages/WhyChooseUs
-include mixins/pages/NoWorries
-include mixins/pages/service/Process
-include mixins/pages/CtaStartNewProject
-include mixins/pages/work/Mixin
-include mixins/pages/CtaWorks
-include mixins/pages/blog/BlogGrid
-include mixins/pages/blog/Mixin
-include mixins/pages/ContactShort
+extends ../layouts/LayoutTheme
+include ../mixins/navbar/NavbarOnePage
+include ../mixins/headers/SemticHeaderTyped
+include ../mixins/headers/Mixin
+include ../mixins/pages/service/Services
+include ../mixins/pages/service/Performance
+include ../mixins/pages/WhyChooseUs
+include ../mixins/pages/NoWorries
+include ../mixins/pages/service/Process
+include ../mixins/pages/CtaStartNewProject
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/CtaWorks
+include ../mixins/pages/blog/BlogGrid
+include ../mixins/pages/blog/Mixin
+include ../mixins/pages/ContactShort
 
 append variables
   - var Navbar = false;
@@ -35,20 +35,20 @@ prepend scripts
 
 
 append mainContent
-  +NavbarOnePage
-  +SemticHeaderTyped('header-7')
-  +Services('Our Services')#services
-  +Performance#performance
-  +WhyChooseUs#whyus
-  +NoWorries#noworries
-  +Process#process
-  +CtaStartNewProject
-  +RecentProjects(true, 'container-fluid', language)#projects
+  +NavbarOnePage(language)
+  +SemticHeaderTyped('header-7', language)
+  +Services('Our Services', language)#services
+  +Performance(language)#performance
+  +WhyChooseUs(language)#whyus
+  +NoWorries(language)#noworries
+  +Process(language)#process
+  +CtaStartNewProject(language)
+  //- +RecentProjects(true, 'container-fluid', language)#projects
   //- //- TODO: change recent projects to example projects
   //- +CtaWorks
   //- TODO: add back when example projects are ready
   //- +BlogGrid(true)#blog TODO: add back when there are posts to show
-  +ContactShort('Connect With Us')#contact
+  +ContactShort(language)#contact
 
 
 
