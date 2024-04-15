@@ -1,6 +1,7 @@
 extends Layout
 include ../mixins/common/Logo
 include ../mixins/common/PreFooter
+include ../mixins/common/PreFooterPL
 include ../mixins/common/Footer
 include ../mixins/common/SectionHeader
 include ../mixins/common/Member
@@ -47,7 +48,10 @@ block afterMainContent
   //    Footer
   //===============================================
   if(preFooter)
-    +PreFooter
+    if(language == 'pl')
+      +PreFooterPL
+    else
+      +PreFooter
   +Footer
   a(href="#top").btn-back-to-top
     img(src=`${CWD}assets/img/line-icons/upload-arrow.svg`, width="8" alt="")

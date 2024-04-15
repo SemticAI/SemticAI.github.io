@@ -1,47 +1,95 @@
-mixin Process
+mixin Process(language)
+	if language == 'en'
+		-
+			var lang_versions = {
+				'header': 'How we do it',
+				'copy': 'Working together to achieve great results',
+				'steps': [
+					{
+						'title': 'Initial Discovery (Free)',
+						'copy': `Your Journey Begins Here. At Semtic.AI, we kick off with a complimentary Initial Discovery session. We're confident in our ability to meet or exceed your expectations, and we start by understanding your unique needs and vision. This free initial step reflects our commitment to aligning with your goals right from the outset.`
+					},
+					{
+						'title': 'Design & Requirements',
+						'copy': `We believe that getting the requirements right is half the job. That's why, at this stage, we're 100% fixated on crafting a customer experience that resonates with your specific needs. Our meticulous approach to design and requirements ensures that the final product isn't just functional, but also a perfect fit for your business.`
+					},
+					{
+						'title': 'Development & Testing',
+						'copy': `The development and testing phase is where our expertize truly shines. Our team diligently builds and refines your custom AI solution, integrating advanced AI technologies with your specific requirements. Rigorous testing is conducted to ensure reliability, efficiency, and seamless integration into your operations.`
+					},
+					{
+						'title': 'Support & Maintenance',
+						'copy': `Our support and maintenance packages, while optional, are highly recommended to keep your AI solutions in top form. We offer a spectrum of options, from basic support to ongoing development, allowing for monthly enhancements and functionality extensions. This approach ensures that your AI solutions not only remain reliable but also evolve with your business needs.`
+					}
+				]
+			}
+	else if language == 'pl'
+		-
+			var lang_versions = {
+				'header': 'Jak to robimy',
+				'copy': 'Współpracujemy, aby osiągnąć wspaniałe rezultaty',
+				'steps': [
+					{
+						'title': 'Początkowe odkrycie (Bezpłatne)',
+						'copy': `Twoja podróż zaczyna się tutaj. W Semtic.AI rozpoczynamy od bezpłatnej sesji początkowego odkrywania. Jesteśmy pewni, że jesteśmy w stanie spełnić lub przekroczyć Twoje oczekiwania, dlatego zaczynamy od zrozumienia Twoich unikalnych potrzeb i wizji. Ten bezpłatny początkowy krok odzwierciedla nasze zaangażowanie w dostosowanie się do Twoich celów od samego początku.`
+					},
+					{
+						'title': 'Projektowanie i Wymagania',
+						'copy': `Uważamy, że dobranie odpowiednich wymagań to połowa sukcesu. Dlatego na tym etapie w 100% skupiamy się na tworzeniu doświadczenia klienta, które rezonuje z Twoimi konkretnymi potrzebami. Nasze skrupulatne podejście do projektowania i wymagań zapewnia, że finalny produkt nie tylko jest funkcjonalny, ale także idealnie pasuje do Twojej firmy.`
+					},
+					{
+						'title': 'Rozwój i Testowanie',
+						'copy': `Faza rozwoju i testowania to moment, w którym nasza wiedza naprawdę się wydaje. Nasz zespół sumiennie buduje i udoskonala Twoje indywidualne rozwiązanie AI, integrując zaawansowane technologie AI z Twoimi konkretnymi wymaganiami. Przeprowadzane są rygorystyczne testy, aby zapewnić niezawodność, efektywność i bezproblemową integrację z Twoimi operacjami.`
+					},
+					{
+						'title': 'Wsparcie i Utrzymanie',
+						'copy': `Nasze pakiety wsparcia i utrzymania, choć opcjonalne, są gorąco polecane, aby utrzymać Twoje rozwiązania AI w doskonałej formie. Oferujemy szereg opcji, od podstawowego wsparcia po ciągły rozwój, pozwalając na miesięczne ulepszenia i rozszerzenia funkcjonalności. Ten sposób zapewnia, że Twoje rozwiązania AI nie tylko pozostają niezawodne, ale także rozwijają się wraz z potrzebami Twojej firmy.`
+					}
+				]
+			}
 	+Section&attributes(attributes)
 		.row
 			.col.mb-4.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
 				.overflow-hidden
-					h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) how we do it
+					h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0})= lang_versions['header']
 				.overflow-hidden
-					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) working together to achieve great results
+					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1})= lang_versions['copy']
 				.overflow-hidden
 					hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
 		.row.justify-content-center
 			.col-lg-9.px-5
 				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
 					.process-icon-circle
-						img(src=`${CWD}assets/img/line-icons/light-bulb.svg`, alt="").process-icon
+						img(src=`${CWD}assets/img/line-icons/purple-light-bulb.svg`, alt="").process-icon
 					.flex-1.ms-4.ms-sm-5
 						h5.ls-2
-							span.bg-white.pe-3 Initial Discovery (Free)
-						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) Your Journey Begins Here. At Semtic.AI, we kick off with a complimentary Initial Discovery session. We're confident in our ability to meet or exceed your expectations, and we start by understanding your unique needs and vision. This free initial step reflects our commitment to aligning with your goals right from the outset.
+							span.bg-white.pe-3= lang_versions['steps'][0]['title']
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2})= lang_versions['steps'][0]['copy']
 
 				.d-flex.process-item.border-dashed-start.border-600.border-md-start-0.border-md-dashed-end.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
 					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
 						h5.text-md-end
-							span.bg-white.ps-md-3 Design &amp; Requirements
+							span.bg-white.ps-md-3= lang_versions['steps'][1]['title']
 							span.process-devider.border-end-0.start-0
-						p.mb-0.text-md-end.ps-lg-6(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  We believe that getting the requirements right is half the job. That's why, at this stage, we're 100% fixated on crafting a customer experience that resonates with your specific needs. Our meticulous approach to design and requirements ensures that the final product isn't just functional, but also a perfect fit for your business.
+						p.mb-0.text-md-end.ps-lg-6(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})= lang_versions['steps'][1]['copy']
 
 					.process-icon-circle
-						img(src=`${CWD}assets/img/line-icons/medical-result.svg`, alt="").process-icon
+						img(src=`${CWD}assets/img/line-icons/purple-medical-result.svg`, alt="").process-icon
 
 				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
 					.process-icon-circle
-						img(src=`${CWD}assets/img/line-icons/web-programming.svg`, alt="").process-icon
+						img(src=`${CWD}assets/img/line-icons/purple-web-programming.svg`, alt="").process-icon
 					.flex-1.position-relative.ms-4.ms-sm-5
 						span.process-devider.border-start-0.end-0
 						h5.ls-2
-							span.bg-white.pe-3 Development &amp; Testing
-						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) The development and testing phase is where our expertize truly shines. Our team diligently builds and refines your custom AI solution, integrating advanced AI technologies with your specific requirements. Rigorous testing is conducted to ensure reliability, efficiency, and seamless integration into your operations.
+							span.bg-white.pe-3= lang_versions['steps'][2]['title']
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2})= lang_versions['steps'][2]['copy']
 
 				.d-flex.process-item(data-zanim-timeline!={} data-zanim-trigger="scroll")
 					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
 						h5.text-md-end
-							span.bg-white.ps-md-3 Support &amp; Maintenance
+							span.bg-white.ps-md-3= lang_versions['steps'][3]['title']
 							span.process-devider.border-end-0.start-0
-						p.mb-0.text-md-end.ps-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  Our support and maintenance packages, while optional, are highly recommended to keep your AI solutions in top form. We offer a spectrum of options, from basic support to ongoing development, allowing for monthly enhancements and functionality extensions. This approach ensures that your AI solutions not only remain reliable but also evolve with your business needs.
+						p.mb-0.text-md-end.ps-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})= lang_versions['steps'][3]['copy']
 					.process-icon-circle
-						img(src=`${CWD}assets/img/line-icons/technical-support.svg`, alt="").process-icon
+						img(src=`${CWD}assets/img/line-icons/purple-technical-support.svg`, alt="").process-icon

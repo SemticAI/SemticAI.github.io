@@ -1,4 +1,16 @@
-mixin CtaStartNewProject
+mixin CtaStartNewProject(language)
+  if language == 'en'
+    -
+      var lang_versions = {
+        'header': 'Excited To Start your next project?',
+        'copy': 'Contact us'
+      }
+  else if language == 'pl'
+    -
+      var lang_versions = {
+        'header': 'Chcesz rozpocząć nowy projekt?',
+        'copy': 'Skontaktuj się'
+      }
   +Section({
     image: `${CWD}assets/img/backgrounds/fun-fact.jpg`,
     className: "overlay overlay-0",
@@ -7,8 +19,6 @@ mixin CtaStartNewProject
     }
   }).py-6.text-center.bg-1100(data-zanim-timeline!={} data-zanim-trigger="scroll") 
     .overflow-hidden    
-      h3.font-base.text-white(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Excited To Start 
-        br.d-block.d-sm-none
-        | Your Next Project?
+      h3.font-base.text-white(data-zanim-xs!={'duration': 1.5, 'delay': 0})= lang_versions['header']
     div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.1})
-      a(href="mailto:contact@semtic.ai").btn.btn-sm.btn-outline-light.hvr-sweep-top.mt-3 Contact us
+      a(href="mailto:contact@semtic.ai").btn.btn-sm.btn-outline-light.hvr-sweep-top.mt-3= lang_versions['copy']

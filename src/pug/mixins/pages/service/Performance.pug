@@ -1,4 +1,60 @@
-mixin Performance
+mixin Performance(language)
+	if language == 'en'
+		-
+			var lang_versions = {
+				'header': 'AI at work',
+				'copy': 'AI Assistants users love working with them',
+				'bars': [
+					'More productive',
+					'Can focus on more satisfying work',
+					'Spend less time searching for information'
+					],
+				'tabs': [
+					{
+						'name': 'ROI',
+						'copy_1': 'The percentage of companies seeing returns on their AI investments has greatly increased from 2017 to 2023, reaching 92.1% from 48.1%.',
+						'copy_2': '70% of CEOs who have successfully integrated AI into their operations have witnessed a near-instant ROI.'
+					},
+					{
+						'name': 'Adoption',
+						'copy_1': '91% of leading global companies are continuously investing in the AI industry',
+						'copy_2': '80% of CEOs intend to incorporate AI technologies into their business operations within two years'
+					},
+					{
+						'name': 'Economy',
+						'copy_1': 'AI is estimated to contribute $15.7 trillion to the global economy by 2030',
+						'copy_2': 'AI market size is expected to grow to $1,345.2 billion by 2030'
+					}
+				]
+			}
+	else if language == 'pl'
+		-
+			var lang_versions = {
+				'header': 'AI w praktyce',
+				'copy': 'Użytkownicy Asystentów AI uwielbiają z nimi pracować',
+				'bars': [
+					'Większa produktywność',
+					'Możliwość skupienia na bardziej satysfakcjonującej pracy',
+					'Mniej czasu spędzonego na szukaniu informacji'
+					],
+				'tabs': [
+					{
+						'name': 'ROI',
+						'copy_1': 'Odsetek firm, które odnotowują zwroty z inwestycji w AI, wzrósł znacznie od 2017 do 2023 roku, osiągając 92,1% z 48,1%.',
+						'copy_2': '70% dyrektorów generalnych, którzy z powodzeniem zintegrowali AI w swoje operacje, zauważyło niemal natychmiastowy zwrot z inwestycji.'
+					},
+					{
+						'name': 'Adopcja',
+						'copy_1': '91% wiodących globalnych firm ciągle inwestuje w branżę AI',
+						'copy_2': '80% dyrektorów generalnych zamierza w ciągu dwóch lat wdrożyć technologie AI do swoich operacji biznesowych'
+					},
+					{
+						'name': 'Ekonomia',
+						'copy_1': 'Szacuje się, że AI przyczyni się do globalnej gospodarki kwotą 15,7 biliona dolarów do 2030 roku',
+						'copy_2': 'Rozmiar rynku AI ma wzrosnąć do 1345,2 miliarda dolarów do 2030 roku'
+					}
+				]
+			}
 	+Section({
 		image: `${CWD}assets/img/backgrounds/performance-bg.jpg`,
 		className: "overlay overlay-1",
@@ -9,58 +65,61 @@ mixin Performance
 		.row
 			.col-12.mb-4.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
 				.overflow-hidden
-					h2.fs-md-5.text-white(data-zanim-xs!={'duration': 1.5,'delay': 0}) AI at work
+					h2.fs-md-5.text-white(data-zanim-xs!={'duration': 1.5,'delay': 0})= lang_versions['header']
 				.overflow-hidden
-					p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) AI Assistants users love working with them
+					p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1})= lang_versions['copy']
 				.overflow-hidden
 					hr.hr-short.bg-white(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
 
-			.col-lg-6.px-4.px-sm-3.px-lg-5.mb-4.mb-md-5.mb-lg-0(style="padding-top: 5px;")
+			.col-lg-6.px-4.px-sm-3.px-lg-5.mb-4.mb-md-5.mb-lg-0(style="padding-top: 5px")
 				.progress-line.text-white(data-progress-line data-options!={progress: 88})
-					p.mb-0.text-start More productive
+					p.mb-0.text-start= lang_versions['bars'][0]
 				.progress-line.text-white(data-progress-line data-options!={progress: 74})
-					p.mb-0.text-start Can focus on more satisfying work
+					p.mb-0.text-start= lang_versions['bars'][1]
 				.progress-line.text-white(data-progress-line data-options!={progress: 77})
-					p.mb-0.text-start Spend less time searching for information
+					p.mb-0.text-start= lang_versions['bars'][2]
 	
 				
 			.col-lg-6.px-lg-4
 				ul#myTab.nav.nav-tabs(role='tablist')
 					li.nav-item
-						a#home-tab.nav-link.fs-0.text-white.ls-1.active(data-bs-toggle='tab', href='#tab-home', role='tab', aria-controls='tab-home', aria-selected='true') ROI
+						a#home-tab.nav-link.fs-0.text-white.ls-1.active(data-bs-toggle='tab', href='#tab-home', role='tab', aria-controls='tab-home', aria-selected='true')= lang_versions['tabs'][0]['name']
 					li.nav-item
-						a#profile-tab.nav-link.fs-0.text-white.ls-1(data-bs-toggle='tab', href='#tab-profile', role='tab', aria-controls='tab-profile', aria-selected='false') Adoption
+						a#profile-tab.nav-link.fs-0.text-white.ls-1(data-bs-toggle='tab', href='#tab-profile', role='tab', aria-controls='tab-profile', aria-selected='false')= lang_versions['tabs'][1]['name']
 					li.nav-item
-						a#contact-tab.nav-link.fs-0.text-white.ls-1l(data-bs-toggle='tab', href='#tab-contact', role='tab', aria-controls='tab-contact', aria-selected='false') Economy
+						a#contact-tab.nav-link.fs-0.text-white.ls-1l(data-bs-toggle='tab', href='#tab-contact', role='tab', aria-controls='tab-contact', aria-selected='false')= lang_versions['tabs'][2]['name']
 				#myTabContent.tab-content.pt-4
 					#tab-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab')
 						.d-flex.align-items-center
 							img(src=`${CWD}assets/img/line-icons/bar-chart-1-white.svg`, width=56 alt="")
 							.flex-1.ms-3.text-light
-								| The percentage of companies seeing returns on their AI investments has greatly increased from 2017 to 2023, reaching 92.1% from 48.1%.
+								| #{lang_versions['tabs'][0]['copy_1']}
 								br
 								br
-								| 70% of CEOs who have successfully integrated AI into their operations have witnessed a near-instant ROI.
+								| #{lang_versions['tabs'][0]['copy_2']}
 					#tab-profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
 						.d-flex.align-items-center
 							img(src=`${CWD}assets/img/line-icons/monitor.svg`, width=56 alt="")
 							.flex-1.ms-3.text-light
-								| 91% of leading global companies are continuously investing in the AI industry
+								| #{lang_versions['tabs'][1]['copy_1']}
 								br
 								br
-								| 80% of CEOs intend to incorporate AI technologies into their business operations within two years
+								| #{lang_versions['tabs'][1]['copy_2']}
 								br
 								br
+								if language == 'pl'
+									br
 					#tab-contact.tab-pane.fade(role='tabpanel', aria-labelledby='contact-tab') 
 						.d-flex.align-items-center
 							img(src=`${CWD}assets/img/line-icons/money.svg`, width=56 alt="")
 							.flex-1.ms-3.text-light
-								| AI is estimated to contribute $15.7 trillion to the global economy by 2030
+								| #{lang_versions['tabs'][2]['copy_1']}
 								br
 								br
-								| AI market size is expected to grow to $1,345.2 billion by 2030
+								| #{lang_versions['tabs'][2]['copy_2']}
 								br
 								br
-								br
+								if language == 'en'
+									br
 				//- .text-center.text-lg-start
 				//- 	a(href=`${CWD}pages/work.html`).btn.btn-outline-light.hvr-sweep-top.btn-sm.mt-5.mt-lg-4.mb-2 Our Latest Works

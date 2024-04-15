@@ -22,6 +22,7 @@ gulp.task('watch', () => {
 	};
 
 	gulp.watch(paths.pug.src.all, gulp.series(updating));
+	gulp.watch(paths.pug.src.pages, gulp.series(updating));
 	gulp.watch(paths.style.src, gulp.series('style'));
 	gulp.watch(paths.script.src, gulp.series('script'));
 	gulp.watch(

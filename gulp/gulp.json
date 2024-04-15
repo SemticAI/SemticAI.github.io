@@ -25,7 +25,8 @@
       "all": "src/pug/**/*.pug",
       "pages": [
         "*.pug",
-        "pages/**/*.pug"
+        "pages/**/*.pug",
+        "pl/*.pug"
       ]
     },
     "dest": ""

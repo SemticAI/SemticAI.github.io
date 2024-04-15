@@ -4,7 +4,21 @@ mixin Countup(config)
   .overflow-hidden
     p.text-uppercase.text-white.fw-semi-bold.ls-2.mb-0=config.title
         
-mixin NoWorries
+mixin NoWorries(language)
+  if language == 'en'
+    -
+      var lang_versions = {
+        'header': 'No worries',
+        'copy': 'We specialise in pain-free deployments',
+        'features': ['UX Focused', 'Frictionless integration', 'Data security']
+      }
+  else if language == 'pl'
+    -
+      var lang_versions = {
+        'header': 'Bez obaw',
+        'copy': 'Specjalizujemy się w bezbolesnych wdrożeniach',
+        'features': ['Skupienie na UX', 'Bezproblemowa integracja', 'Bezpieczeństwo danych']
+      }
   +Section({
     image: `${CWD}assets/img/backgrounds/our-video-bg.jpg`,
     className: "overlay"
@@ -12,9 +26,9 @@ mixin NoWorries
     .row.mb-4
       .col
         .overflow-hidden
-          h2.fs-sm-5.text-white.mb-1.mb-lg-2(data-zanim-xs!={'duration': 1.5, 'delay': 0}) No worries
+          h2.fs-sm-5.text-white.mb-1.mb-lg-2(data-zanim-xs!={'duration': 1.5, 'delay': 0})= lang_versions['header']
         .overflow-hidden
-          p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) We specialise in pain-free deployments
+          p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1})= lang_versions['copy']
         .overflow-hidden
           hr.hr-short.bg-white(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
     .row.justify-content-center
@@ -23,15 +37,15 @@ mixin NoWorries
           .col-md-4.mb-4.mb-lg-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.0}) 
             +Countup({
               img: "man-1-white",
-              title: "UX Focused"
+              title: lang_versions['features'][0]
             })
           .col-md-4.mb-4.mb-lg-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) 
             +Countup({
               img: "monitor-2-white",
-              title: "Frictionless integration"
+              title: lang_versions['features'][1]
             })
           .col-md-4(data-zanim-xs!={'duration': 1.5, 'delay': 0.2}) 
             +Countup({
               img: "padlock-1-white",
-              title: "Data security"
+              title: lang_versions['features'][2]
             })

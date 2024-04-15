@@ -2,29 +2,59 @@ append variables
   -
     var galleries= [
       {
-        id:'collapse-1',
-        image:'ai_assistant.jpg',
-        title:'Revolutionizing Business Operations',
-        text:"In today's rapidly advancing technological landscape, Custom AI Assistants are emerging as game changers for businesses across various sectors. But what exactly are these assistants, and how can they transform your company? A Custom AI Assistant is a sophisticated AI system designed to perform a wide range of tasks tailored to the specific needs of a business. Unlike generic AI tools, these assistants are customized to understand the unique aspects of your business, from industry-specific terminology to company-specific processes. They are capable of learning and adapting to your company's environment, making them incredibly efficient at handling tasks that would typically require human intelligence.",
-        next:'collapse-2',
-        prev:'!',
+        'en':{
+          id:'collapse-1',
+          image:'ai_assistant.jpg',
+          title:'Revolutionizing Business Operations',
+          text:"In today's rapidly advancing technological landscape, Custom AI Assistants are emerging as game changers for businesses across various sectors. But what exactly are these assistants, and how can they transform your company? A Custom AI Assistant is a sophisticated AI system designed to perform a wide range of tasks tailored to the specific needs of a business. Unlike generic AI tools, these assistants are customized to understand the unique aspects of your business, from industry-specific terminology to company-specific processes. They are capable of learning and adapting to your company's environment, making them incredibly efficient at handling tasks that would typically require human intelligence.",
+          next:'collapse-2',
+          prev:'!',
+        },
+        'pl':{
+          id: 'collapse-1',
+          image: 'ai_assistant.jpg',
+          title: 'Rewolucjonizacja Operacji Biznesowych',
+          text: "W dzisiejszym dynamicznie rozwijającym się krajobrazie technologicznym, Niestandardowi Asystenci AI stają się graczami zmieniającymi zasady gry dla firm z różnych sektorów. Ale czym dokładnie są ci asystenci i jak mogą przekształcić Twoją firmę? Niestandardowy Asystent AI to zaawansowany system AI zaprojektowany do wykonywania szerokiego zakresu zadań dostosowanych do konkretnych potrzeb firmy. W odróżnieniu od ogólnych narzędzi AI, te asystenci są dostosowane do zrozumienia unikalnych aspektów Twojej firmy, od terminologii specyficznej dla branży po procesy specyficzne dla firmy. Są one zdolne do nauki i dostosowywania się do środowiska Twojej firmy, co czyni je niezwykle efektywnymi w wykonywaniu zadań, które zwykle wymagałyby ludzkiej inteligencji.",
+          next: 'collapse-2',
+          prev: '!',
+        }
       },
       {
-        id:'collapse-2',
-        image:'knowledge_db.jpg',
-        title:'Empowering Your AI with Your knowledge',
-        text:"A Semantic Knowledge Database represents a significant leap in how companies manage and utilize their information. It's about creating a central hub that holds all your company's knowledge – everything from documents and emails to meeting notes and reports. Unlike traditional databases, it's designed to be easily understood and used by AI systems, like AI assistants, making your business more efficient and forward-thinking.",
-        next:'collapse-3',
-        prev:'collapse-1',
+        'en':{
+          id:'collapse-2',
+          image:'knowledge_db.jpg',
+          title:'Empowering Your AI with Your knowledge',
+          text:"A Semantic Knowledge Database represents a significant leap in how companies manage and utilize their information. It's about creating a central hub that holds all your company's knowledge – everything from documents and emails to meeting notes and reports. Unlike traditional databases, it's designed to be easily understood and used by AI systems, like AI assistants, making your business more efficient and forward-thinking.",
+          next:'collapse-3',
+          prev:'collapse-1',
+        },
+        'pl':{
+          id: 'collapse-2',
+          image: 'knowledge_db.jpg',
+          title: 'Wzbogacanie Twojej AI Twoją wiedzą',
+          text: "Semantyczna Baza Wiedzy stanowi znaczący skok w tym, jak firmy zarządzają i wykorzystują swoje informacje. Chodzi o stworzenie centralnego centrum, które przechowuje całą wiedzę Twojej firmy - od dokumentów i e-maili po notatki z spotkań i raporty. W odróżnieniu od tradycyjnych baz danych, jest ona zaprojektowana tak, aby była łatwo zrozumiała i używana przez systemy AI, takie jak asystenci AI, co sprawia, że Twoja firma jest bardziej efektywna i przyszłościowa.",
+          next: 'collapse-3',
+          prev: 'collapse-1',
+        }
       },
       {
-        id:'collapse-3',
-        image:'ai_agent.jpg',
-        title:'Pioneering the New Frontier in Business Automation',
-        text:'AI Agents are advanced AI systems capable of making autonomous decisions based on data analysis. Unlike traditional automation tools that follow predefined rules, AI Agents can adapt, learn, and evolve as they process new information. This ability makes them incredibly powerful tools for businesses looking to stay ahead in the digital age.',
-        next:'!',
-        prev:'collapse-2',
-      },
+        'en':{
+          id:'collapse-3',
+          image:'ai_agent.jpg',
+          title:'Pioneering the New Frontier in Business Automation',
+          text:'AI Agents are advanced AI systems capable of making autonomous decisions based on data analysis. Unlike traditional automation tools that follow predefined rules, AI Agents can adapt, learn, and evolve as they process new information. This ability makes them incredibly powerful tools for businesses looking to stay ahead in the digital age.',
+          next:'!',
+          prev:'collapse-2',
+        },
+        'pl':{
+          id: 'collapse-3',
+          image: 'ai_agent.jpg',
+          title: 'Pionierowanie Nowej Granicy w Automatyzacji Biznesowej',
+          text: 'Agenci AI to zaawansowane systemy AI zdolne do podejmowania autonomicznych decyzji na podstawie analizy danych. W odróżnieniu od tradycyjnych narzędzi automatyzacji, które stosują z góry określone zasady, Agenci AI mogą dostosowywać się, uczyć i ewoluować w miarę przetwarzania nowych informacji. Ta zdolność sprawia, że są one niezwykle potężnymi narzędziami dla firm, które chcą pozostać na czele w erze cyfrowej.',
+          next: '!',
+          prev: 'collapse-2',
+        }
+      }
 
     ];
 
@@ -60,39 +90,75 @@ mixin ServiceItem(config, galleryConfig)
         .card.card-body.border-0.bg-100.m-1.px-4
           +GalleryContent(galleryConfig)
               
-mixin Services(title)
+mixin Services(title, language)
+  if language == 'en'
+    -
+      var lang_versions = {
+        'header': 'Our Services',
+        'copy': 'The AI revolution is upon us - let us take your company into the new era',
+        'content_1': {
+          'title': 'AI Assistants',
+          'description': "Harness the latest LLM-powered AI assistants, custom-tailored for your company. With access to internal data and systems, our assistants provide personalized support for clients and employees 24/7."
+        },
+        'content_2': {
+          'title': 'Knowledge Bases',
+          'description': "Empower your data with meaning and structure. Our AI-driven semantic knowledge base consolidates your company's data, granting instant access to any information you might require, right at your fingertips."
+        },
+        'content_3': {
+          'title': 'AI Agents',
+          'description': "Experience cutting-edge autonomous automation with AI Agents. They intelligently analyze data, make decisions, and seamlessly interact with systems. Witness the ease and power of automation like never before."
+        }
+      }
+  else if language == 'pl'
+    -
+      var lang_versions = {
+          'header': 'Nasze Usługi',
+          'copy': 'Rewolucja sztucznej inteligencji już tu jest - pozwól nam wprowadzić Twoją firmę w nową erę',
+          'content_1': {
+              'title': 'Asystenci AI',
+              'description': "Wykorzystaj najnowszych asystentów AI zasilanych LLM, dostosowanych specjalnie do Twojej firmy. Dzięki dostępowi do danych i systemów wewnętrznych nasi asystenci zapewniają spersonalizowane wsparcie dla klientów i pracowników 24/7."
+          },
+          'content_2': {
+              'title': 'Bazy Wiedzy',
+              'description': "Wzbogać swoje dane znaczeniem i strukturą. Nasza oparta na AI semantyczna baza wiedzy konsoliduje dane Twojej firmy, umożliwiając natychmiastowy dostęp do wszelkich informacji, których możesz potrzebować, dosłownie na wyciągnięcie ręki."
+          },
+          'content_3': {
+              'title': 'Agenci AI',
+              'description': "Doświadcz innowacyjnej automatyzacji autonomicznej z agentami AI. Inteligentnie analizują dane, podejmują decyzje i bezproblemowo współdziałają z systemami. Doświadcz łatwości i mocy automatyzacji jak nigdy dotąd."
+          }
+      }
   +Section.text-center&attributes(attributes)
     if title
       .row.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
         .col
           .overflow-hidden
-            h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) Our Services
+            h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0})= lang_versions['header']
           .overflow-hidden
-            p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) The AI revolution is upon us - let us take your company into the new era
+            p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1})= lang_versions['copy']
           .overflow-hidden
             hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
     .row.g-2.position-relative.thumbnail-grid-container#selector
       +ServiceItem({
         id:'collapse-1',
-        img: "black-bubble-speech", 
-        title: "AI assistants", 
-        description: 'Harness the latest LLM-powered AI assistants, custom-tailored for your company. With access to internal data and systems, our assistants provide personalized support for clients and employees 24/7.', 
-        delay: 0,
+        img: "purple-bubble-speech", 
+        title: lang_versions['content_1']['title'],
+        description: lang_versions['content_1']['description'],
+        delay: 0.1,
         link: "ai-assistant" ,
-      }, galleries[0])
+      }, galleries[0][language])
       +ServiceItem({
         id:'collapse-2',
-        img: "object", 
-        title: "Knowledge Bases", 
-        description: "Empower your data with meaning and structure. Our AI-driven semantic knowledge base consolidates your company's data, granting instant access to any information you might require, right at your fingertips.", 
+        img: "purple-object", 
+        title: lang_versions['content_2']['title'],
+        description: lang_versions['content_2']['description'],
         delay: 0.2,
         link: "ai-assistant" 
-      }, galleries[1])
+      }, galleries[1][language])
       +ServiceItem({
         id:'collapse-3',
-        img: "network", 
-        title: "AI Agents", 
-        description: "Experience cutting-edge autonomous automation with AI Agents. They intelligently analyze data, make decisions, and seamlessly interact with systems. Witness the ease and power of automation like never before.",
+        img: "purple-network", 
+        title: lang_versions['content_3']['title'],
+        description: lang_versions['content_3']['description'],
         delay: 0.3,
         link: "ai-assistant"
-      }, galleries[2])
+      }, galleries[2][language])
