@@ -1,0 +1,89 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/about/CtaTeam
+include ../mixins/navbar/NavbarOnePage
+
+
+
+append variables
+	- var Navbar = false;
+	- var language = 'en';
+	-
+		var content = [
+			{
+				title: 'AI Solutions Architect',
+				description: [
+					"This role involves creating Copilots and Agents, fine-tuning AI models, developing semantic interfaces, integrating assistants with diverse data sources, and building comprehensive knowledge bases. It revolves heavily around Microsoft Azure and OpenAI offerings.",
+					"You haven't done that before, but you'd like to?",
+					"No problem - almost nobody has yet! If you have a programming baseline in any of the popular languages, a strong technical background, and a good understanding of the AI domain, and you are willing to learn that's enough!",
+					"After you complete the interview process the last step is to pass the Azure AI Engineer certificate - https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/. For which we will pay!"
+				],
+				responsibilities: [
+					"Design and build AI solutions within Microsoft and OpenAI ecosystem",
+					"Act as a technical subject matter expert for business users"
+				],
+				qualifications: [
+					"A robust understanding of the AI domain, including knowledge of the latest technologies, their performance and limitations, and application in real-world scenarios.",
+					"Proficiency in at least one modern programming language, preferably Python, but also C#, JavaScript, or Go.",
+					"Fluency in English",
+					"A strong technical foundation; additional business experience is welcome but not mandatory.",
+					"2+ years of industry experience"
+				],
+				salary_range: 'B2B 10k - 15k PLN Net',
+				location: 'Remote'
+			},
+			{
+				title: 'AI Engineer',
+				description: [
+					"In this versatile role, you will be crafting a range of custom AI services, including AI Assistants, AI Agents, retrieval systems, knowledge bases, as well as computer vision and NLP services.",
+					"While our focus is primarily on the Microsoft and OpenAI ecosystems, you will also engage with various open-source models, applying your expertise to adapt and fine-tune them according to our needs. We value a holistic skill set, encompassing both deep AI domain knowledge and robust coding skills.",
+				],
+				responsibilities: [
+					"Design and implement AI solutions using open-source models, the OpenAI API, and Microsoft Azure technologies.",
+					"Develop and maintain ML pipelines for data processing, model fine-tuning, evaluation, and deployment.",
+					"Serve as a technical expert, advising business users on AI-related matters."
+				],
+				qualifications: [
+					"Deep understanding of the AI domain, including up-to-date knowledge of current technologies, their capabilities and limitations, and their application in practical scenarios.",
+					"Proficiency in the typical ML/DL stack, especially Python and PyTorch.",
+					"Fluency in English.",
+					"A strong technical background; additional business experience is a plus.",
+					"A minimum of 3 years of industry experience in a related field."
+				],
+				salary_range: 'B2B 10k - 15k PLN Net',
+				location: 'Remote'
+			}
+		]
+
+prepend styles
+	link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+append mainContent
+	+NavbarOnePage(language)
+	+HeaderClassic('Job offers')
+	+Section('container')
+		.row
+			+WorkSingleCarousel(
+				false,
+				content[0].title,
+				content[0].description,
+				content[0].responsibilities,
+				content[0].qualifications,
+				content[0].salary_range,
+				content[0].location
+			)
+		hr.mt-6.mb-6
+		.row
+			+WorkSingleCarousel(
+				false,
+				content[1].title,
+				content[1].description,
+				content[1].responsibilities,
+				content[1].qualifications,
+				content[1].salary_range,
+				content[1].location
+			)
