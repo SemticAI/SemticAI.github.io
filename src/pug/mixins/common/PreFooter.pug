@@ -12,7 +12,8 @@ mixin PreFooter
       'ai_assistants': 'AI Assistants',
       'semantic_knowledge_bases': 'Semantic Knowledge Bases',
       'ai_agents': 'AI Agents',
-      'semantification': 'Semantification'
+      'semantification': 'Semantification',
+      'joboffers': 'Job Offers'
     }
   +Section.bg-1100.py-6.pb-9.px-3.px-lg-0
     .row
@@ -45,6 +46,8 @@ mixin PreFooter
                 a(href=`#process`).text-700.hover-color-white= lang_versions['process']
               li.mb-1
                 a(href=`#contact`).text-700.hover-color-white= lang_versions['contact']
+              li.mb-1
+                a(href=`${CWD}pages/job-offers.html`).text-700.hover-color-white= lang_versions['joboffers']
               
           .col-6.col-md-5.ps-4.mb-4.mb-lg-0
             h5.text-white.mb-3= lang_versions['col_name_2']

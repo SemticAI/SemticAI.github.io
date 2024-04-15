@@ -157,54 +157,61 @@ mixin RecentProjects(title, containerClass, language)
 						description: project.description.replace('<br>', '\n')
 					})
 
-mixin WorkSingleCarousel
-	.col-12.mb-4
-		.swiper.theme-slider(data-swiper!={
-			autoplay: true,
-			spaceBetween: 5,
-			loop: true,
-			loopedSlides: 5,
-			slideToClickedSlide: true,
-			})
-				.swiper-wrapper
-					.swiper-slide
-						img(src=`${CWD}assets/img/projects/11.jpg` alt="image").img-fluid
-					.swiper-slide  
-						img(src=`${CWD}assets/img/projects/10.jpg` alt="image").img-fluid
-					.swiper-slide  
-						img(src=`${CWD}assets/img/projects/16.jpg` alt="image").img-fluid
-				<div class="swiper-pagination"></div>		
-				.swiper-nav
-					.swiper-button-prev
-					.swiper-button-next
-				.swiper-pagination
+mixin WorkSingleCarousel(carousel, title, descriptions, responsibilities, qualifications, salary_range, location)
+	if carousel
+		.col-12.mb-4
+			.swiper.theme-slider(data-swiper!={
+				autoplay: true,
+				spaceBetween: 5,
+				loop: true,
+				loopedSlides: 5,
+				slideToClickedSlide: true,
+				})
+					.swiper-wrapper
+						.swiper-slide
+							img(src=`${CWD}assets/img/projects/11.jpg` alt="image").img-fluid
+						.swiper-slide  
+							img(src=`${CWD}assets/img/projects/10.jpg` alt="image").img-fluid
+						.swiper-slide  
+							img(src=`${CWD}assets/img/projects/16.jpg` alt="image").img-fluid
+					<div class="swiper-pagination"></div>		
+					.swiper-nav
+						.swiper-button-prev
+						.swiper-button-next
+					.swiper-pagination
 	.col-lg.pe-lg-5.mb-4.mb-lg-0.position-relative
-		h4.fw-normal.font-base Bootstrap 5 Template Design
-		p As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness; the sky took on a wonderful deepness of blue, a splendid luminous color like that of early twilight; the jerking sun became a streak of fire, a brilliant arch, in space; the moon a fainter fluctuating band; and I could see nothing of the stars, save now and then a brighter circle flickering in the blue.
-		p A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets. It always does one good.
+		h1.fw-normal.mb-1= title
+		<br>
+		each description in descriptions
+			p= description
+		<br>
+		h3.fw-normal Responsibilities
+		ul.list.list-style-check.fs-0
+			each responsibility in responsibilities
+				li= responsibility
+		<br>
+		h3.fw-normal Qualifications
+		ul.list.list-style-check.fs-0
+			each qualification in qualifications
+				li= qualification
 		.vertical-line
 	.col-lg-auto.ps-lg-5
-		h5.fw-normal.mb-1 Informations
+		h5.fw-normal.mb-1 Job details
 		table.table.table-borderless.mb-0
 			tr
-				td.py-1.ps-0.text-dark Developer:
-				td.py-1.text-600 Reign Studio
+				td.py-1.ps-0.text-dark Job title:
+				td.py-1.text-800= title
 			tr
-				td.py-1.ps-0.text-dark Live Demo: 
-				td.py-1
-					a(href="#!").text-600 www.reigndemo.com
+				td.py-1.ps-0.text-dark Salary range:
+				td.py-1.text-800= salary_range
 			tr
-				td.py-1.ps-0.text-dark Category:
-				td.py-1.text-600 Web Designer
+				td.py-1.ps-0.text-dark Location: 
+				td.py-1.text-800= location
 			tr
-				td.py-1.ps-0.text-dark Skill:
-				td.py-1.text-600 Html5, Bootstrap 5, CSS3
-			tr
-				td.py-1.ps-0.text-dark Date Post:
-				td.py-1.text-600 05 Jan, 2022
-			tr 
-				td.py-1.ps-0.text-dark Tags:
-				td.py-1.text-600 Portfolio, Blogs, Theme, Responsive
+				td
+					br
+					a.btn.btn-dark(href='mailto:d@semtic.ai') Apply now
+
 
 mixin WorkSigletext
 	.col-12

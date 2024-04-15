@@ -10,7 +10,8 @@ mixin PreFooterPL
       'ai_assistants': 'Asystenci AI',
       'semantic_knowledge_bases': 'Semantyczne Bazy Wiedzy',
       'ai_agents': 'Agenci AI',
-      'semantification': 'Semantyfikacja'
+      'semantification': 'Semantyfikacja',
+      'joboffers': 'Oferty Pracy'
     }
   +Section.bg-1100.py-6.pb-9.px-3.px-lg-0
     .row
@@ -43,6 +44,8 @@ mixin PreFooterPL
                 a(href=`#process`).text-700.hover-color-white= lang_versions['process']
               li.mb-1
                 a(href=`#contact`).text-700.hover-color-white= lang_versions['contact']
+              li.mb-1
+                a(href=`${CWD}pages/job-offers.html`).text-700.hover-color-white= lang_versions['joboffers']
               
           .col-6.col-md-5.ps-4.mb-4.mb-lg-0
             h5.text-white.mb-3= lang_versions['col_name_2']
